@@ -1,0 +1,29 @@
+<h1>home Page</h1>
+
+<ul>
+    
+    {% for article in articles %}
+        <li>
+            {{article.title}}
+        </li>
+    {% endfor %}
+        
+</ul>
+<ul>
+    
+    {% for course in courses %}
+        <li>
+            {{course.title}}
+        </li>
+    {% endfor %}
+        
+</ul>
+<ul>
+    
+    {% for instructor in instructors %}
+        <li>
+            {{instructor.name}}
+        </li>
+    {% endfor %}
+        
+</ul>
