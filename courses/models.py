@@ -1,18 +1,79 @@
 from django.db import models
 from django.db.models.deletion import CASCADE
+from django_quill.fields import QuillField
+
 # from django.contrib.auth.models import User
 from instructors.models import Instructor
 
 # Create your models here.
 
+
+class Category(models.Model):
+    title = models.CharField(max_length=50)
+
+    def __str__(self):
+        return str(self.title).title()
+
+
+class SubCategory(models.Model):
+    title = models.CharField(max_length=50)
+    category = models.ForeignKey(Category, on_delete=CASCADE)
+
+    def __str__(self):
+        return str(self.title).title()
+
+
+language = (
+    ("Arabic", "Arabic"),
+    ("English", "English"),
+)
+
+skill_level = (
+    ("Beginner", "Beginner"),
+    ("Advance", "Advance"),
+)
+
+certificate = (
+    ("Yes", "Yes"),
+    ("No", "No"),
+)
+
+
 class Course(models.Model):
     title = models.CharField(max_length=50)
-    instructor = models.ForeignKey(Instructor,on_delete=CASCADE)
-    cover = models.ImageField(upload_to='images/', blank=True, null=True)
+    instructor = models.ForeignKey(Instructor, on_delete=CASCADE)
+    cover = models.ImageField(upload_to="courses/", blank=True, null=True)
+    sub_category = models.ForeignKey(
+        SubCategory, on_delete=models.CASCADE, null=True, blank=True
+    )
     price = models.PositiveBigIntegerField()
-    body = models.TextField()
+    body = QuillField()
+    duration = models.DurationField(
+        null=True, blank=True, help_text="input duration in seconds"
+    )
+    lectures = models.PositiveSmallIntegerField(null=True, blank=True)
+    language = models.CharField(
+        max_length=50, choices=language, default=1, null=True, blank=True
+    )
+    skill_level = models.CharField(
+        max_length=50, choices=skill_level, default=1, null=True, blank=True
+    )
+    certificate = models.CharField(
+        max_length=50, choices=certificate, default=1, null=True, blank=True
+    )
+
+    deadline = models.DateField(
+        auto_now=False, auto_now_add=False, null=True, blank=True
+    )
+
+    # TODO add to courses model this fields
+    # ? Duration -> O.K
+    # ? Lectures -> O.K
+    # ? Language -> O.K
+    # ? Skill level -> O.K
+    # ? Deadline -> O.K
+    # ? Certificate -> O.K
+    # ? Enrolled
 
     def __str__(self):
         return self.title[:50]
-    
-

@@ -9,7 +9,7 @@ from instructors.models import Instructor
 def HomePageView(request):
 
     articles = Article.objects.all()
-    courses = Course.objects.all()
+    courses = Course.objects.all()[:4]
     instructors = Instructor.objects.all()
 
     context = {

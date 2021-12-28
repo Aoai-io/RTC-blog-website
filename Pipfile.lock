@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "1e2fc0d8f76c9e0d9e04f7461a87c3f0fe389b5cb48bdbc412cd8d40fa16248e"
+            "sha256": "106c408eaab5c556f06ef316e1358563e24958613b963304cd669f5bba91cd46"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -31,6 +31,14 @@
             ],
             "index": "pypi",
             "version": "==4.0"
+        },
+        "django-quill-editor": {
+            "hashes": [
+                "sha256:0c03b03c75f3c241888f8a72fc3b36ca5246339e91b8aa5a92cb29426ac37ea3",
+                "sha256:51bb081ec2bebd607fc1c3bd454e517b9d2012f32672ea108e454b5efb649bb6"
+            ],
+            "index": "pypi",
+            "version": "==0.1.29"
         },
         "pillow": {
             "hashes": [

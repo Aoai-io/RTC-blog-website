@@ -15,12 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
 from .view import HomePageView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomePageView, name='home'),
-    path('', include('articles.urls')),
-    path('', include('instructors.urls')),
-    path('', include('courses.urls')),
+    path('articles/', include('articles.urls')),
+    path('instructors/', include('instructors.urls')),
+    path('courses/', include('courses.urls')),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
