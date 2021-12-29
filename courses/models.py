@@ -46,10 +46,11 @@ class Course(models.Model):
     sub_category = models.ForeignKey(
         SubCategory, on_delete=models.CASCADE, null=True, blank=True
     )
+    old_price = models.PositiveBigIntegerField(null=True, blank=True)
     price = models.PositiveBigIntegerField()
     body = QuillField()
     duration = models.DurationField(
-        null=True, blank=True, help_text="input duration in seconds"
+        null=True, blank=True, help_text="Input Duration In Seconds"
     )
     lectures = models.PositiveSmallIntegerField(null=True, blank=True)
     language = models.CharField(
