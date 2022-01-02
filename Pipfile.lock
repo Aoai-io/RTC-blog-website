@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "106c408eaab5c556f06ef316e1358563e24958613b963304cd669f5bba91cd46"
+            "sha256": "73ad756ef591052cd0606b5727e539e6abf3468b8d38d3a59b2c76e98aa30aff"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -34,11 +34,22 @@
         },
         "django-quill-editor": {
             "hashes": [
-                "sha256:0c03b03c75f3c241888f8a72fc3b36ca5246339e91b8aa5a92cb29426ac37ea3",
-                "sha256:51bb081ec2bebd607fc1c3bd454e517b9d2012f32672ea108e454b5efb649bb6"
+                "sha256:4587ad2d9b5f751fab5c99658c2e519527f8c9d9269a9967aa24e067512e1d4e",
+                "sha256:99b9f9e7dd2bc56c44b4849d55d964d255717f8933e3ad4ac6d6b207fdfc36d8"
             ],
             "index": "pypi",
-            "version": "==0.1.29"
+            "version": "==0.1.33"
+        },
+        "mysqlclient": {
+            "hashes": [
+                "sha256:02c8826e6add9b20f4cb12dcf016485f7b1d6e30356a1204d05431867a1b3947",
+                "sha256:2c8410f54492a3d2488a6a53e2d85b7e016751a1e7d116e7aea9c763f59f5e8c",
+                "sha256:973235686f1b720536d417bf0a0d39b4ab3d5086b2b6ad5e6752393428c02b12",
+                "sha256:b62d23c11c516cedb887377c8807628c1c65d57593b57853186a6ee18b0c6a5b",
+                "sha256:e6279263d5a9feca3e0edbc2b2a52c057375bf301d47da2089c075ff76331d14"
+            ],
+            "index": "pypi",
+            "version": "==2.1.0"
         },
         "pillow": {
             "hashes": [
@@ -145,11 +156,11 @@
         },
         "platformdirs": {
             "hashes": [
-                "sha256:367a5e80b3d04d2428ffa76d33f124cf11e8fff2acdaa9b43d545f5c7d661ef2",
-                "sha256:8868bbe3c3c80d42f20156f22e7131d2fb321f5bc86a2a345375c6481a67021d"
+                "sha256:1d7385c7db91728b83efd0ca99a5afb296cab9d0ed8313a45ed8ba17967ecfca",
+                "sha256:440633ddfebcc36264232365d7840a970e75e1018d15b4327d11f91909045fda"
             ],
-            "markers": "python_version >= '3.6'",
-            "version": "==2.4.0"
+            "markers": "python_version >= '3.7'",
+            "version": "==2.4.1"
         },
         "tomli": {
             "hashes": [
