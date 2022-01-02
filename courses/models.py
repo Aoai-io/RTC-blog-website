@@ -67,6 +67,10 @@ class Course(models.Model):
         auto_now=False, auto_now_add=False, null=True, blank=True
     )
 
+    # TODO add to course requirements field
+    # TODO add to course (What you'll learn) field
+
+
     # TODO add to courses model this fields
     # ? Duration -> O.K
     # ? Lectures -> O.K

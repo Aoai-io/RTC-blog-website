@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "articles",
     "courses",
     "instructors",
+    'profiles',
     # 3d party
     "django_quill",
 ]

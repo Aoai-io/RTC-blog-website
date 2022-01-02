@@ -8,6 +8,7 @@ class Article(models.Model):
     author = models.ForeignKey('auth.user', on_delete=CASCADE)
     cover = models.ImageField(upload_to='articles/', null=True, blank=True)
     body = models.TextField()
+    posted_at = models.DateTimeField(auto_now=True, auto_now_add=False)
 
 
     def __str__(self) -> str:
