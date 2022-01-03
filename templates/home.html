@@ -169,10 +169,10 @@ home page
 
 
 
-            
+
             {% for course in courses %}
-                
-            
+
+
             <div class="col-12 col-md-6 col-xl-4 pb-4 pb-md-7" style="padding-right:15px;padding-left:15px;">
                 <!-- Card -->
                 <div class="card border shadow p-2 sk-fade font-montserrat font-size-sm">
@@ -203,7 +203,7 @@ home page
 
                             </a>
                         </div>
-                            
+
                         <a href="{% url 'course_detail' course.pk  %}" class="card-img sk-thumbnail d-block">
                             <img class="rounded shadow-light-lg" src="{{course.cover}}" alt="...">
                         </a>
@@ -231,7 +231,8 @@ home page
                         <!-- Heading -->
                         <div class="position-relative">
                             <a href="./course-single-v1.html" class="d-block stretched-link">
-                                <h6 class="line-clamp-2 h-md-48 fw-semi-bold me-md-6 me-lg-10 me-xl-4 mb-2">{{course.title}}</h6>
+                                <h6 class="line-clamp-2 h-md-48 fw-semi-bold me-md-6 me-lg-10 me-xl-4 mb-2">
+                                    {{course.title}}</h6>
                             </a>
 
                             <div class="d-lg-flex align-items-end flex-wrap mb-n1">
@@ -467,8 +468,8 @@ home page
                             <!-- Image -->
                             <div class="card-zoom position-relative">
                                 <a href="./blog-single.html" class="card-img d-block sk-thumbnail img-ratio-8"><img
-                                        class="rounded shadow-light-lg img-fluid" src="{% static 'img/post/post-7.jpg' %}"
-                                        alt="..."></a>
+                                        class="rounded shadow-light-lg img-fluid"
+                                        src="{% static 'img/post/post-7.jpg' %}" alt="..."></a>
 
                                 <a href="./blog-single.html"
                                     class="badge sk-fade-bottom badge-lg badge-purple badge-pill badge-float bottom-0 left-0 mb-4 ms-4 px-5 me-4">
@@ -526,8 +527,8 @@ home page
                             <!-- Image -->
                             <div class="card-zoom position-relative">
                                 <a href="./blog-single.html" class="card-img d-block sk-thumbnail img-ratio-8"><img
-                                        class="rounded shadow-light-lg img-fluid" src="{% static 'img/post/post-8.jpg' %}"
-                                        alt="..."></a>
+                                        class="rounded shadow-light-lg img-fluid"
+                                        src="{% static 'img/post/post-8.jpg' %}" alt="..."></a>
 
                                 <a href="./blog-single.html"
                                     class="badge sk-fade-bottom badge-lg badge-purple badge-pill badge-float bottom-0 left-0 mb-4 ms-4 px-5 me-4">
@@ -602,7 +603,8 @@ home page
                     <div class="card-zoom">
                         <div class="d-flex align-items-center">
                             <div class="avatar avatar-custom me-5">
-                                <img src="{% static 'img/avatars/avatar-1.jpg' %}" alt="..." class="avatar-img rounded-circle">
+                                <img src="{% static 'img/avatars/avatar-1.jpg' %}" alt="..."
+                                    class="avatar-img rounded-circle">
                             </div>
                             <div class="media-body">
                                 <h6 class="mb-0 font-montserrat fw-semi-bold">Albert Cole</h6>
@@ -627,7 +629,8 @@ home page
                     <div class="card-zoom">
                         <div class="d-flex align-items-center">
                             <div class="avatar avatar-custom me-5">
-                                <img src="{% static 'img/avatars/avatar-2.jpg' %}" alt="..." class="avatar-img rounded-circle">
+                                <img src="{% static 'img/avatars/avatar-2.jpg' %}" alt="..."
+                                    class="avatar-img rounded-circle">
                             </div>
                             <div class="media-body">
                                 <h6 class="mb-0 font-montserrat fw-semi-bold">Alison Dawn</h6>
@@ -652,7 +655,8 @@ home page
                     <div class="card-zoom">
                         <div class="d-flex align-items-center">
                             <div class="avatar avatar-custom me-5">
-                                <img src="{% static 'img/avatars/avatar-3.jpg' %}" alt="..." class="avatar-img rounded-circle">
+                                <img src="{% static 'img/avatars/avatar-3.jpg' %}" alt="..."
+                                    class="avatar-img rounded-circle">
                             </div>
                             <div class="media-body">
                                 <h6 class="mb-0 font-montserrat fw-semi-bold">Daniel Parker</h6>
@@ -677,7 +681,8 @@ home page
                     <div class="card-zoom">
                         <div class="d-flex align-items-center">
                             <div class="avatar avatar-custom me-5">
-                                <img src="{% static 'img/avatars/avatar-4.jpg' %}" alt="..." class="avatar-img rounded-circle">
+                                <img src="{% static 'img/avatars/avatar-4.jpg' %}" alt="..."
+                                    class="avatar-img rounded-circle">
                             </div>
                             <div class="media-body">
                                 <h6 class="mb-0 font-montserrat fw-semi-bold">Albert Cole</h6>

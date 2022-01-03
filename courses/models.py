@@ -89,4 +89,12 @@ class Review(models.Model):
 
     # TODO: make a refrance to user that write the review
     # TODO: make a refrance to the course that have the review
+
+    #? 5 star - 252
+    #? 4 star - 124
+    #? 3 star - 40
+    #? 2 star - 29
+    #? 1 star - 33
+
+    #? (5*252 + 4*124 + 3*40 + 2*29 + 1*33) / (252+124+40+29+33) = 4.11 and change
     pass
