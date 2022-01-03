@@ -70,7 +70,6 @@ class Course(models.Model):
     # TODO add to course requirements field
     # TODO add to course (What you'll learn) field
 
-
     # TODO add to courses model this fields
     # ? Duration -> O.K
     # ? Lectures -> O.K
