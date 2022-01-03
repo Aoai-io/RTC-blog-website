@@ -70,7 +70,6 @@ class Course(models.Model):
     # TODO add to course requirements field
     # TODO add to course (What you'll learn) field
 
-
     # TODO add to courses model this fields
     # ? Duration -> O.K
     # ? Lectures -> O.K
@@ -81,4 +80,13 @@ class Course(models.Model):
     # ? Enrolled
 
     def __str__(self):
-        return self.title[:50]
+        return str(self.title[:50]).title
+
+
+class Review(models.Model):
+    # TODO: make a review text field
+    # TODO: make a rating field
+
+    # TODO: make a refrance to user that write the review
+    # TODO: make a refrance to the course that have the review
+    pass
