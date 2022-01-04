@@ -8,6 +8,9 @@ django = "*"
 pillow = "*"
 django-quill-editor = "*"
 mysqlclient = "*"
+coverage = "*"
+django-ckeditor = "*"
+crispy-bootstrap5 = "*"
 
 [dev-packages]
 black = "*"

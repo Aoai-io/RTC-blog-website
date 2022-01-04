@@ -1629,8 +1629,10 @@
                         <span class="ms-2">2 days left at this price!</span>
                     </div>
 
-                    <button class="btn btn-primary btn-block mb-3" type="button" name="button">BUY NOW</button>
-                    <button class="btn btn-orange btn-block mb-6" type="button" name="button">ENROLL</button>
+                    <!-- <button class="btn btn-primary btn-block mb-3" type="button" name="button">BUY NOW</button> -->
+                    <button class="btn btn-orange btn-block mb-6" type="button" name="button">
+                        <a href="{% url 'course_register' %}">ENROLL</a>
+                    </button>
 
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item d-flex align-items-center py-3">

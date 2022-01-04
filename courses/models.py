@@ -1,9 +1,11 @@
+
 from django.db import models
 from django.db.models.deletion import CASCADE
 from django_quill.fields import QuillField
+from instructors.models import Instructor
+from django.urls import reverse
 
 # from django.contrib.auth.models import User
-from instructors.models import Instructor
 
 # Create your models here.
 
@@ -36,6 +38,31 @@ skill_level = (
 certificate = (
     ("Yes", "Yes"),
     ("No", "No"),
+)
+gender = (
+    ("Male", "Male"),
+    ("Female", "Female"),
+)
+province = (
+    ("Al Anbar", "Al Anbar"),
+    ("Babylon", "Babylon"),
+    ("Baghdad", "Baghdad"),
+    ("Basra", "Basra"),
+    ("Dhi Qar", "Dhi Qar"),
+    ("Al-Qādisiyyah", "Al-Qādisiyyah"),
+    ("Diyala", "Diyala"),
+    ("Duhok", "Duhok"),
+    ("Erbil", "Erbil"),
+    ("Halabja", "Halabja"),
+    ("Karbala", "Karbala"),
+    ("Kirkuk", "Kirkuk"),
+    ("Maysan", "Maysan"),
+    ("Muthanna", "Muthanna"),
+    ("Najaf", "Najaf"),
+    ("Nineveh", "Nineveh"),
+    ("Saladin", "Saladin"),
+    ("Sulaymaniyah", "Sulaymaniyah"),
+    ("Wasit", "Wasit"),
 )
 
 
@@ -90,11 +117,48 @@ class Review(models.Model):
     # TODO: make a refrance to user that write the review
     # TODO: make a refrance to the course that have the review
 
-    #? 5 star - 252
-    #? 4 star - 124
-    #? 3 star - 40
-    #? 2 star - 29
-    #? 1 star - 33
+    # ? 5 star - 252
+    # ? 4 star - 124
+    # ? 3 star - 40
+    # ? 2 star - 29
+    # ? 1 star - 33
 
-    #? (5*252 + 4*124 + 3*40 + 2*29 + 1*33) / (252+124+40+29+33) = 4.11 and change
+    # ? (5*252 + 4*124 + 3*40 + 2*29 + 1*33) / (252+124+40+29+33) = 4.11 and change
     pass
+
+
+class DataCollector(models.Model):
+    """Model definition for DataCollector."""
+
+    # TODO: Define fields here
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    email = models.EmailField(max_length=254)
+    phone = models.PositiveSmallIntegerField()
+
+    date_of_birth = models.DateField(
+        auto_now=False, auto_now_add=False, null=True, blank=True
+    )
+    gender = models.CharField(
+        max_length=50,
+        choices=gender,
+    )
+
+    street_address = models.CharField(max_length=250,  blank=True, null=True)
+    province = models.CharField(max_length=50, choices=province)
+    city = models.CharField(max_length=50)
+    company = models.CharField(max_length=50, blank=True, null=True)
+
+    class Meta:
+        """Meta definition for DataCollector."""
+
+        verbose_name = "DataCollector"
+        verbose_name_plural = "DataCollectors"
+
+    def __str__(self):
+        """Unicode representation of DataCollector."""
+        return str(self.first_name + " " + self.last_name)
+
+    def get_absolute_url(self):
+        return reverse('home')
+    
