@@ -28,7 +28,7 @@ django-js-asset==1.2.2
 
 django-quill-editor==0.1.34
 
-django==*
+django
 
 mysqlclient==2.1.0
 
