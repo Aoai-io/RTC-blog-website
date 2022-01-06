@@ -85,33 +85,17 @@
 
                             <div class="col-md-4">
                                 <!-- Heading -->
-                                <h5 class="dropdown-header">
-                                    Lesson Single
-                                </h5>
-
-                                <!-- List -->
-                                <a class="dropdown-item" href="./lesson-single-v1.html">
-                                    Lesson Single v1
-                                </a>
-                                <a class="dropdown-item mb-5" href="./lesson-single-v2.html">
-                                    Lesson Single v2
-                                </a>
-
-                                <!-- Heading -->
-                                <h5 class="dropdown-header">
-                                    Instructors
-                                </h5>
-
-                                <!-- List -->
+                                
+                                {% for category in categories %}
+                                    
+                                    
                                 <a class="dropdown-item" href="./instructors-list-v1.html">
-                                    Instructors List v1
+                                    {{category.title | title}}
                                 </a>
-                                <a class="dropdown-item" href="./instructors-list-v2.html">
-                                    Instructors List v2
-                                </a>
-                                <a class="dropdown-item mb-5 mb-lg-0" href="./instructors-single.html">
-                                    Instructors Single
-                                </a>
+
+                                {% endfor %}
+
+
                             </div>
                         </div>
                     </div> <!-- / .row -->
@@ -144,43 +128,11 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle px-xl-4 text-uppercase" id="navbarBlog" data-bs-toggle="dropdown"
-                        href="#" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link px-xl-4 text-uppercase" id="navbarBlog" 
+                        href="{% url 'articles_list' %}" aria-haspopup="true" aria-expanded="false">
                         Blog
                     </a>
-                    <ul class="dropdown-menu border-xl shadow-none" aria-labelledby="navbarBlog">
-                        <li class="dropdown-item dropright">
-                            <a class="dropdown-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
-                                Blog Grid
-                            </a>
-                            <div class="dropdown-menu border-xl shadow-none">
-                                <a class="dropdown-item" href="./blog-grid-v1.html">
-                                    Grid v1
-                                </a>
-                                <a class="dropdown-item" href="./blog-grid-v2.html">
-                                    Grid v2
-                                </a>
-                            </div>
-                        </li>
-                        <li class="dropdown-item dropright">
-                            <a class="dropdown-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
-                                Blog List
-                            </a>
-                            <div class="dropdown-menu border-xl shadow-none">
-                                <a class="dropdown-item" href="./blog-list-v1.html">
-                                    List v1
-                                </a>
-                                <a class="dropdown-item" href="./blog-list-v2.html">
-                                    List v2
-                                </a>
-                            </div>
-                        </li>
-                        <li class="dropdown-item">
-                            <a class="dropdown-link" href="{% url 'articles_list' %}">
-                                Blog Single
-                            </a>
-                        </li>
-                    </ul>
+
                 </li>
 
                 <li class="nav-item dropdown">
@@ -341,19 +293,19 @@
                             <!-- Heading -->
                             <h1 class="display-5 fw-medium text-white mb-2 text-capitalize font-lora"
                                 data-aos="fade-left" data-aos-duration="150">
-                                <span class="fw-bold">The Best University</span> <span class="d-block">Of The
-                                    State</span>
+                                <span class="fw-bold">Get the skills you need
+                                    for tech career
+                                    </span> <span class="d-block">in just 3 months.</span>
                             </h1>
 
                             <!-- Text -->
                             <p class="font-montserrat text-capitalize mb-5 text-white me-xl-12 line-height-md"
                                 data-aos="fade-up" data-aos-duration="200">
-                                Technology is brining a massive wave of evolution on learning things on different
-                                ways.
+                                Our programs are built in partnership with the world’s most innovative tech companies and taught by industry leaders.
                             </p>
 
                             <!-- Buttons -->
-                            <a href="./course-list-v1.html"
+                            <a href="{% url 'course_register' %}"
                                 class="btn text-white-alone font-size-sm btn-slide slide-white btn-wide shadow mb-4 mb-md-0 me-md-5 font-montserrat fw-bold"
                                 data-aos-duration="200" data-aos="fade-up">APPLY NOW</a>
                         </div>
