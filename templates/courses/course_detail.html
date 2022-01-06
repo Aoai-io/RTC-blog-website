@@ -3,12 +3,12 @@
 
 
 {% block title %}
-    {{course.title}}
+{{course.title}}
 {% endblock title %}
 
 
 {% block content %}
-   
+
 
 
 
@@ -55,8 +55,7 @@
             <div class="d-md-flex align-items-center mb-5">
                 <div class="border rounded-circle d-inline-block mb-4 mb-md-0 me-md-6 me-lg-4 me-xl-6">
                     <div class="p-2">
-                        <img src="/{{course.instructor.image}}" alt="..." class="rounded-circle" width="68"
-                            height="68">
+                        <img src="/{{course.instructor.image}}" alt="..." class="rounded-circle" width="68" height="68">
                     </div>
                 </div>
 
@@ -1475,7 +1474,8 @@
                     <ul class="list-unstyled pt-2">
                         <li class="media d-flex">
                             <div class="avatar avatar-xxl me-3 me-md-6 flex-shrink-0">
-                                <img src="{% static 'img/avatars/avatar-1.jpg' %}" alt="..." class="avatar-img rounded-circle">
+                                <img src="{% static 'img/avatars/avatar-1.jpg' %}" alt="..."
+                                    class="avatar-img rounded-circle">
                             </div>
                             <div class="media-body flex-grow-1">
                                 <div class="d-md-flex align-items-center mb-5">
@@ -1496,7 +1496,8 @@
                         </li>
                         <li class="media d-flex">
                             <div class="avatar avatar-xxl me-3 me-md-6 flex-shrink-0">
-                                <img src="{% static 'img/avatars/avatar-2.jpg' %}" alt="..." class="avatar-img rounded-circle">
+                                <img src="{% static 'img/avatars/avatar-2.jpg' %}" alt="..."
+                                    class="avatar-img rounded-circle">
                             </div>
                             <div class="media-body flex-grow-1">
                                 <div class="d-md-flex align-items-center mb-5">
@@ -1520,50 +1521,52 @@
                     <div class="border shadow rounded p-6 p-md-9">
                         <h3 class="mb-2">Add Reviews & Rate</h3>
                         <div class="">What is it like to Course?</div>
-                        <form>
+                        <form method="post" novalidate>
+                            {% csrf_token %}
+
                             <div class="clearfix">
                                 <fieldset class="slect-rating mb-3">
-                                    <input type="radio" id="star5" name="rating" value="5" />
+                                    <input type="radio" id="star5" name="rating" value=5 />
                                     <label class="full" for="star5" title="Awesome - 5 stars"></label>
 
-                                    <input type="radio" id="star4half" name="rating" value="4 and a half" />
+                                    <input type="radio" id="star4half" name="rating" value=4.5 />
                                     <label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
 
-                                    <input type="radio" id="star4" name="rating" value="4" />
+                                    <input type="radio" id="star4" name="rating" value=4 />
                                     <label class="full" for="star4" title="Pretty good - 4 stars"></label>
 
-                                    <input type="radio" id="star3half" name="rating" value="3 and a half" />
+                                    <input type="radio" id="star3half" name="rating" value=3.5 />
                                     <label class="half" for="star3half" title="Meh - 3.5 stars"></label>
 
-                                    <input type="radio" id="star3" name="rating" value="3" />
+                                    <input type="radio" id="star3" name="rating" value=3 />
                                     <label class="full" for="star3" title="Meh - 3 stars"></label>
 
-                                    <input type="radio" id="star2half" name="rating" value="2 and a half" />
+                                    <input type="radio" id="star2half" name="rating" value=2.5 />
                                     <label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
 
-                                    <input type="radio" id="star2" name="rating" value="2" />
+                                    <input type="radio" id="star2" name="rating" value=2 />
                                     <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
 
-                                    <input type="radio" id="star1half" name="rating" value="1 and a half" />
+                                    <input type="radio" id="star1half" name="rating" value=1.5 />
                                     <label class="half" for="star1half" title="Meh - 1.5 stars"></label>
 
-                                    <input type="radio" id="star1" name="rating" value="1" />
+                                    <input type="radio" id="star1" name="rating" value=1 />
                                     <label class="full" for="star1" title="Sucks big time - 1 star"></label>
 
-                                    <input type="radio" id="starhalf" name="rating" value="half" />
+                                    <input type="radio" id="half" name="rating" value=0.5 />
                                     <label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
                                 </fieldset>
                             </div>
 
                             <div class="form-group mb-6">
                                 <label for="exampleInputTitle1">Review Title</label>
-                                <input type="text" class="form-control placeholder-1" id="exampleInputTitle1"
+                                <input name="review_title" type="text" class="form-control placeholder-1" id="exampleInputTitle1"
                                     placeholder="Courses">
                             </div>
 
                             <div class="form-group mb-6">
                                 <label for="exampleFormControlTextarea1">Review Content</label>
-                                <textarea class="form-control placeholder-1" id="exampleFormControlTextarea1" rows="6"
+                                <textarea name="review_content" class="form-control placeholder-1" id="exampleFormControlTextarea1" rows="6"
                                     placeholder="Content"></textarea>
                             </div>
 
@@ -1601,7 +1604,7 @@
                         <div class="badge badge-lg badge-purple text-white ms-auto fw-normal">91% Off</div>
                     </div>
 
-                    
+
 
                     <div class="d-flex align-items-center text-alizarin mb-6">
                         <!-- Icon -->
@@ -2291,6 +2294,3 @@
 
 
 {% endblock content %}
-    
-
-    

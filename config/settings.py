@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'ckeditor',
     'crispy_bootstrap5',
     'crispy_forms',
+    'phonenumber_field',
+
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap5'

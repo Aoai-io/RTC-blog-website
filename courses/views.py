@@ -1,7 +1,8 @@
 from django.contrib.messages.views import SuccessMessageMixin
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import DetailView, ListView, CreateView
-from .models import Course, DataCollector
+from .models import Course, DataCollector, Review
+from .forms import ReviewForm
 
 # Create your views here.
 
@@ -36,3 +37,17 @@ class DataCollectorCreateView(SuccessMessageMixin, CreateView):
 
 # def course_register(request):
 #     return render(request, '')
+
+
+
+
+
+def create(request):
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    form = ReviewForm()
+
+    return render(request,'courses/course_detail.html',{'form': form})

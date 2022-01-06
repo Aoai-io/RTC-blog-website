@@ -4,6 +4,7 @@ from django.db.models.deletion import CASCADE
 from django_quill.fields import QuillField
 from instructors.models import Instructor
 from django.urls import reverse
+from phonenumber_field.modelfields import PhoneNumberField
 
 # from django.contrib.auth.models import User
 
@@ -117,6 +118,12 @@ class Review(models.Model):
     # TODO: make a refrance to user that write the review
     # TODO: make a refrance to the course that have the review
 
+    rating = models.PositiveSmallIntegerField(null=True, blank=True)
+
+
+    review_title = models.TextField("Review Title", null=True, blank=True)
+    review_content = models.TextField("Review Content", null=True, blank=True)
+
     # ? 5 star - 252
     # ? 4 star - 124
     # ? 3 star - 40
@@ -124,7 +131,9 @@ class Review(models.Model):
     # ? 1 star - 33
 
     # ? (5*252 + 4*124 + 3*40 + 2*29 + 1*33) / (252+124+40+29+33) = 4.11 and change
-    pass
+
+    def __str__(self):
+        return self.review_title
 
 
 class DataCollector(models.Model):
@@ -134,7 +143,7 @@ class DataCollector(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField(max_length=254)
-    phone = models.PositiveSmallIntegerField()
+    phone = PhoneNumberField(blank=True, null=True, region="IQ")
 
     date_of_birth = models.DateField(
         auto_now=False, auto_now_add=False, null=True, blank=True

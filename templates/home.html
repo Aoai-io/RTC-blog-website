@@ -587,123 +587,7 @@ home page
     </div> <!-- / .container -->
 </section>
 
-<!-- TESTIMONIAL
-        ================================================== -->
-<section class="py-10 pt-md-11 pb-md-12">
-    <div class="container">
-        <div class="text-center mb-2 text-capitalize">
-            <h1 class="font-lora fw-bold mb-1">What our students have to say</h1>
-            <p class="font-montserrat mb-0">Discover your perfect program in our courses.</p>
-        </div>
 
-        <div class="mx-n4"
-            data-flickity='{"pageDots": true, "prevNextButtons": false, "cellAlign": "left", "wrapAround": true, "imagesLoaded": true}'>
-            <div class="col-12 col-md-6 col-xl-4 py-md-7 py-3" style="padding-right:15px;padding-left:15px;">
-                <!-- Card -->
-                <div class="card border shadow p-6 lift-md">
-                    <!-- Image -->
-                    <div class="card-zoom">
-                        <div class="d-flex align-items-center">
-                            <div class="avatar avatar-custom me-5">
-                                <img src="{% static 'img/avatars/avatar-1.jpg' %}" alt="..."
-                                    class="avatar-img rounded-circle">
-                            </div>
-                            <div class="media-body">
-                                <h6 class="mb-0 font-montserrat fw-semi-bold">Albert Cole</h6>
-                                <span class="font-montserrat font-size-sm">Designer</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Footer -->
-                    <div class="card-footer px-0 pb-0">
-                        <p class="mb-0 text-capitalize font-montserrat font-size-15">“ I believe in lifelong
-                            learning and Skola is a great place to learn from experts. I've learned a lot and
-                            recommend it to all my friends “</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6 col-xl-4 py-md-7 py-3" style="padding-right:15px;padding-left:15px;">
-                <!-- Card -->
-                <div class="card border shadow p-6 lift-md">
-                    <!-- Image -->
-                    <div class="card-zoom">
-                        <div class="d-flex align-items-center">
-                            <div class="avatar avatar-custom me-5">
-                                <img src="{% static 'img/avatars/avatar-2.jpg' %}" alt="..."
-                                    class="avatar-img rounded-circle">
-                            </div>
-                            <div class="media-body">
-                                <h6 class="mb-0 font-montserrat fw-semi-bold">Alison Dawn</h6>
-                                <span class="font-montserrat font-size-sm">WordPress Developer</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Footer -->
-                    <div class="card-footer px-0 pb-0">
-                        <p class="mb-0 text-capitalize font-montserrat font-size-15">“ I believe in lifelong
-                            learning and Skola is a great place to learn from experts. I've learned a lot and
-                            recommend it to all my friends “</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6 col-xl-4 py-md-7 py-3" style="padding-right:15px;padding-left:15px;">
-                <!-- Card -->
-                <div class="card border shadow p-6 lift-md">
-                    <!-- Image -->
-                    <div class="card-zoom">
-                        <div class="d-flex align-items-center">
-                            <div class="avatar avatar-custom me-5">
-                                <img src="{% static 'img/avatars/avatar-3.jpg' %}" alt="..."
-                                    class="avatar-img rounded-circle">
-                            </div>
-                            <div class="media-body">
-                                <h6 class="mb-0 font-montserrat fw-semi-bold">Daniel Parker</h6>
-                                <span class="font-montserrat font-size-sm">Front-end Developer</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Footer -->
-                    <div class="card-footer px-0 pb-0">
-                        <p class="mb-0 text-capitalize font-montserrat font-size-15">“ I believe in lifelong
-                            learning and Skola is a great place to learn from experts. I've learned a lot and
-                            recommend it to all my friends “</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6 col-xl-4 py-md-7 py-3" style="padding-right:15px;padding-left:15px;">
-                <!-- Card -->
-                <div class="card border shadow p-6 lift-md">
-                    <!-- Image -->
-                    <div class="card-zoom">
-                        <div class="d-flex align-items-center">
-                            <div class="avatar avatar-custom me-5">
-                                <img src="{% static 'img/avatars/avatar-4.jpg' %}" alt="..."
-                                    class="avatar-img rounded-circle">
-                            </div>
-                            <div class="media-body">
-                                <h6 class="mb-0 font-montserrat fw-semi-bold">Albert Cole</h6>
-                                <span class="font-montserrat font-size-sm">Designer</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Footer -->
-                    <div class="card-footer px-0 pb-0">
-                        <p class="mb-0 text-capitalize font-montserrat font-size-15">“ I believe in lifelong
-                            learning and Skola is a great place to learn from experts. I've learned a lot and
-                            recommend it to all my friends “</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- INSTRUCTORS
         ================================================== -->
@@ -716,6 +600,10 @@ home page
 
         <div class="mx-n3 mx-md-n4"
             data-flickity='{"pageDots": true, "prevNextButtons": false, "cellAlign": "left", "wrapAround": true, "imagesLoaded": true}'>
+
+
+            {% for instructor in instructors %}
+
             <div class="col-12 mw-xl-20 mw-md-25 text-center py-5 px-3 px-md-4"
                 style="padding-right:15px;padding-left:15px;">
                 <div class="card">
@@ -747,252 +635,25 @@ home page
                             </ul>
                         </div>
 
-                        <a href="./instructors-single.html" class="card-img sk-thumbnail img-ratio-one d-block">
-                            <img class="shadow-light-lg rounded-circle h-100 o-f-c"
-                                src="{% static 'img/instructors/instructor-1.jpg' %}" alt="...">
+                        <a href="#" class="card-img sk-thumbnail img-ratio-one d-block">
+                            <img class="shadow-light-lg rounded-circle h-100 o-f-c" src="/{{instructor.image}}"
+                                alt="...">
                         </a>
                     </div>
 
                     <!-- Footer -->
                     <div class="card-footer px-0 pt-4 pb-0 font-montserrat font-size-15">
-                        <a href="./instructors-single.html" class="d-block">
-                            <h6 class="mb-0 fw-semi-bold">Jack Wilson</h6>
+                        <a href="#" class="d-block">
+                            <h6 class="mb-0 fw-semi-bold">{{instructor.name}}</h6>
                         </a>
-                        <span class="font-size-d-sm">Developer</span>
+                        <span class="font-size-d-sm">{{instructor.specialization}}</span>
                     </div>
                 </div>
             </div>
-            <div class="col-12 mw-xl-20 mw-md-25 text-center py-5 px-3 px-md-4"
-                style="padding-right:15px;padding-left:15px;">
-                <div class="card">
-                    <!-- Image -->
-                    <div class="card-zoom position-relative d-flex justify-content-center rounded-circle overflow-hidden card-hover-overlay mx-auto w-100"
-                        style="max-width: 150px;">
-                        <div class="card-float card-hover center">
-                            <ul class="nav mx-n6 justify-content-center font-size-sm">
-                                <li class="nav-item px-2">
-                                    <a href="#" class="d-block text-white">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item px-2">
-                                    <a href="#" class="d-block text-white">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item px-2">
-                                    <a href="#" class="d-block text-white">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item px-2">
-                                    <a href="#" class="d-block text-white">
-                                        <i class="fab fa-linkedin-in"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
 
-                        <a href="./instructors-single.html" class="card-img sk-thumbnail img-ratio-one d-block">
-                            <img class="shadow-light-lg rounded-circle h-100 o-f-c"
-                                src="{% static 'img/instructors/instructor-2.jpg' %}" alt="...">
-                        </a>
-                    </div>
-
-                    <!-- Footer -->
-                    <div class="card-footer px-0 pt-4 pb-0 font-montserrat font-size-15">
-                        <a href="./instructors-single.html" class="d-block">
-                            <h6 class="mb-0 fw-semi-bold">Anna Richard</h6>
-                        </a>
-                        <span class="font-size-d-sm">Travel Bloger</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 mw-xl-20 mw-md-25 text-center py-5 px-3 px-md-4"
-                style="padding-right:15px;padding-left:15px;">
-                <div class="card">
-                    <!-- Image -->
-                    <div class="card-zoom position-relative d-flex justify-content-center rounded-circle overflow-hidden card-hover-overlay mx-auto w-100"
-                        style="max-width: 150px;">
-                        <div class="card-float card-hover center">
-                            <ul class="nav mx-n6 justify-content-center font-size-sm">
-                                <li class="nav-item px-2">
-                                    <a href="#" class="d-block text-white">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item px-2">
-                                    <a href="#" class="d-block text-white">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item px-2">
-                                    <a href="#" class="d-block text-white">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item px-2">
-                                    <a href="#" class="d-block text-white">
-                                        <i class="fab fa-linkedin-in"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <a href="./instructors-single.html" class="card-img sk-thumbnail img-ratio-one d-block">
-                            <img class="shadow-light-lg rounded-circle h-100 o-f-c"
-                                src="{% static 'img/instructors/instructor-3.jpg' %}" alt="...">
-                        </a>
-                    </div>
-
-                    <!-- Footer -->
-                    <div class="card-footer px-0 pt-4 pb-0 font-montserrat font-size-15">
-                        <a href="./instructors-single.html" class="d-block">
-                            <h6 class="mb-0 fw-semi-bold">Kathelen Monero</h6>
-                        </a>
-                        <span class="font-size-d-sm">Designer</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 mw-xl-20 mw-md-25 text-center py-5 px-3 px-md-4"
-                style="padding-right:15px;padding-left:15px;">
-                <div class="card">
-                    <!-- Image -->
-                    <div class="card-zoom position-relative d-flex justify-content-center rounded-circle overflow-hidden card-hover-overlay mx-auto w-100"
-                        style="max-width: 150px;">
-                        <div class="card-float card-hover center">
-                            <ul class="nav mx-n6 justify-content-center font-size-sm">
-                                <li class="nav-item px-2">
-                                    <a href="#" class="d-block text-white">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item px-2">
-                                    <a href="#" class="d-block text-white">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item px-2">
-                                    <a href="#" class="d-block text-white">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item px-2">
-                                    <a href="#" class="d-block text-white">
-                                        <i class="fab fa-linkedin-in"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <a href="./instructors-single.html" class="card-img sk-thumbnail img-ratio-one d-block">
-                            <img class="shadow-light-lg rounded-circle h-100 o-f-c"
-                                src="{% static 'img/instructors/instructor-4.jpg' %}" alt="...">
-                        </a>
-                    </div>
-
-                    <!-- Footer -->
-                    <div class="card-footer px-0 pt-4 pb-0 font-montserrat font-size-15">
-                        <a href="./instructors-single.html" class="d-block">
-                            <h6 class="mb-0 fw-semi-bold">Kristen Pala</h6>
-                        </a>
-                        <span class="font-size-d-sm">User Experience Design</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 mw-xl-20 mw-md-25 text-center py-5 px-3 px-md-4"
-                style="padding-right:15px;padding-left:15px;">
-                <div class="card">
-                    <!-- Image -->
-                    <div class="card-zoom position-relative d-flex justify-content-center rounded-circle overflow-hidden card-hover-overlay mx-auto w-100"
-                        style="max-width: 150px;">
-                        <div class="card-float card-hover center">
-                            <ul class="nav mx-n6 justify-content-center font-size-sm">
-                                <li class="nav-item px-2">
-                                    <a href="#" class="d-block text-white">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item px-2">
-                                    <a href="#" class="d-block text-white">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item px-2">
-                                    <a href="#" class="d-block text-white">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item px-2">
-                                    <a href="#" class="d-block text-white">
-                                        <i class="fab fa-linkedin-in"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <a href="./instructors-single.html" class="card-img sk-thumbnail img-ratio-one d-block">
-                            <img class="shadow-light-lg rounded-circle h-100 o-f-c"
-                                src="{% static 'img/instructors/instructor-5.jpg' %}" alt="...">
-                        </a>
-                    </div>
-
-                    <!-- Footer -->
-                    <div class="card-footer px-0 pt-4 pb-0 font-montserrat font-size-15">
-                        <a href="./instructors-single.html" class="d-block">
-                            <h6 class="mb-0 fw-semi-bold">Anna Richard</h6>
-                        </a>
-                        <span class="font-size-d-sm">Travel Bloger</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 mw-xl-20 mw-md-25 text-center py-5 px-3 px-md-4"
-                style="padding-right:15px;padding-left:15px;">
-                <div class="card">
-                    <!-- Image -->
-                    <div class="card-zoom position-relative d-flex justify-content-center rounded-circle overflow-hidden card-hover-overlay mx-auto w-100"
-                        style="max-width: 150px;">
-                        <div class="card-float card-hover center">
-                            <ul class="nav mx-n6 justify-content-center font-size-sm">
-                                <li class="nav-item px-2">
-                                    <a href="#" class="d-block text-white">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item px-2">
-                                    <a href="#" class="d-block text-white">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item px-2">
-                                    <a href="#" class="d-block text-white">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item px-2">
-                                    <a href="#" class="d-block text-white">
-                                        <i class="fab fa-linkedin-in"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <a href="./instructors-single.html" class="card-img sk-thumbnail img-ratio-one d-block">
-                            <img class="shadow-light-lg rounded-circle h-100 o-f-c"
-                                src="{% static 'img/instructors/instructor-1.jpg' %}" alt="...">
-                        </a>
-                    </div>
-
-                    <!-- Footer -->
-                    <div class="card-footer px-0 pt-4 pb-0 font-montserrat font-size-15">
-                        <a href="./instructors-single.html" class="d-block">
-                            <h6 class="mb-0 fw-semi-bold">Jack Wilson</h6>
-                        </a>
-                        <span class="font-size-d-sm">Developer</span>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
+    </div>
     </div>
 </section>
 

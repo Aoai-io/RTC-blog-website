@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import CourseDetailView, CourseListView, DataCollectorCreateView
+from .views import CourseDetailView, CourseListView, DataCollectorCreateView, create
 
 urlpatterns = [
     path("", CourseListView.as_view(), name="courses_list"),
@@ -9,4 +9,5 @@ urlpatterns = [
         view=DataCollectorCreateView.as_view(),
         name="course_register",
     ),
+    path('review/create/', create, name='review_create'),
 ]
