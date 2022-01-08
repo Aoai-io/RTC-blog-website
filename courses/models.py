@@ -1,10 +1,11 @@
-
+import uuid
 from django.db import models
 from django.db.models.deletion import CASCADE
 from django_quill.fields import QuillField
 from instructors.models import Instructor
 from django.urls import reverse
 from phonenumber_field.modelfields import PhoneNumberField
+from ckeditor.fields import RichTextField
 
 # from django.contrib.auth.models import User
 
@@ -68,6 +69,7 @@ province = (
 
 
 class Course(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=50)
     instructor = models.ForeignKey(Instructor, on_delete=CASCADE)
     cover = models.ImageField(upload_to="courses/", blank=True, null=True)
@@ -76,7 +78,7 @@ class Course(models.Model):
     )
     old_price = models.PositiveBigIntegerField(null=True, blank=True)
     price = models.PositiveBigIntegerField()
-    body = QuillField()
+    body = RichTextField(blank=True, null=True)
     duration = models.DurationField(
         null=True, blank=True, help_text="Input Duration In Seconds"
     )
@@ -107,8 +109,8 @@ class Course(models.Model):
     # ? Certificate -> O.K
     # ? Enrolled
 
-    def __str__(self):
-        return str(self.title[:50]).title
+    def __str__(self) -> str:
+        return self.title[:50]
 
 
 class Review(models.Model):
@@ -119,7 +121,6 @@ class Review(models.Model):
     # TODO: make a refrance to the course that have the review
 
     rating = models.PositiveSmallIntegerField(null=True, blank=True)
-
 
     review_title = models.TextField("Review Title", null=True, blank=True)
     review_content = models.TextField("Review Content", null=True, blank=True)
@@ -139,6 +140,11 @@ class Review(models.Model):
 class DataCollector(models.Model):
     """Model definition for DataCollector."""
 
+    gender = (
+        ("Male", "Male"),
+        ("Female", "Female"),
+    )
+
     # TODO: Define fields here
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
@@ -153,7 +159,7 @@ class DataCollector(models.Model):
         choices=gender,
     )
 
-    street_address = models.CharField(max_length=250,  blank=True, null=True)
+    street_address = models.CharField(max_length=250, blank=True, null=True)
     province = models.CharField(max_length=50, choices=province)
     city = models.CharField(max_length=50)
     company = models.CharField(max_length=50, blank=True, null=True)
@@ -169,5 +175,4 @@ class DataCollector(models.Model):
         return str(self.first_name + " " + self.last_name)
 
     def get_absolute_url(self):
-        return reverse('home')
-    
+        return reverse("home")

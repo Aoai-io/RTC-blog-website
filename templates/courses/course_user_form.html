@@ -2,22 +2,66 @@
 
 
 {% block title %}
-    course register
+course register
 {% endblock title %}
 
 
 
 {% block content %}
-    <div class="container mb-3">
-        <form class="mb-3 py-4" method="post">
-            <div class="container text-center py-xl-2">
-                <h1 class="display-4 fw-semi-bold mb-0">Register</h1>
-            </div>
-            {% csrf_token %}
-            {{form | crispy}}
-            <button class="btn btn-orange btn-block mb-6" type="submit">Enroll</button>
-            
-        </form>
-    </div>
-{% endblock content %}
 
+
+
+
+    
+
+<div class="container flex my-4">
+    <form class="flex" method="post">
+        {% csrf_token %}
+        <div class="form-row">
+          <div class="col-md-4 mb-3">
+            {{ form.first_name|as_crispy_field }}
+          </div>
+          <div class="col-md-4 mb-3">
+            {{ form.last_name|as_crispy_field }}
+          </div>
+          <div class="col-md-4 mb-3">
+            {{ form.email|as_crispy_field }}
+          </div>
+          <div class="col-md-4 mb-3">
+            {{ form.gender|as_crispy_field }}
+          </div>
+          <div class="col-md-4 mb-3">
+            {{ form.date_of_birth|as_crispy_field }}
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            {{ form.street_address|as_crispy_field }}
+          </div>
+          <div class="col-md-3 mb-3">
+            {{ form.province|as_crispy_field }}
+          </div>
+          <div class="col-md-3 mb-3">
+            {{ form.city|as_crispy_field }}
+          </div>
+          <div class="col-md-3 mb-3">
+            {{ form.company|as_crispy_field }}
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+            <label class="form-check-label" for="invalidCheck2">
+              Agree to terms and conditions
+            </label>
+          </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit form</button>
+      </form>
+</div>
+
+
+
+    
+
+{% endblock content %}
