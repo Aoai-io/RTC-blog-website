@@ -1,7 +1,6 @@
 import uuid
 from django.db import models
 from django.db.models.deletion import CASCADE
-from django_quill.fields import QuillField
 from instructors.models import Instructor
 from django.urls import reverse
 from phonenumber_field.modelfields import PhoneNumberField

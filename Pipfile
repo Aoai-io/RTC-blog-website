@@ -6,13 +6,13 @@ name = "pypi"
 [packages]
 django = "*"
 pillow = "*"
-django-quill-editor = "*"
 mysqlclient = "*"
 coverage = "*"
 django-ckeditor = "*"
 crispy-bootstrap5 = "*"
 django-phonenumber-field = "*"
 django-phonenumbers = "*"
+gunicorn = "*"
 
 [dev-packages]
 black = "*"

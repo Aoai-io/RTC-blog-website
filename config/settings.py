@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     "instructors",
     'profiles',
     # 3d party
-    "django_quill",
     'ckeditor',
     'crispy_bootstrap5',
     'crispy_forms',
@@ -54,36 +53,6 @@ INSTALLED_APPS = [
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 
-QUILL_CONFIGS = {
-    "default": {
-        "theme": "snow",
-        "modules": {
-            "syntax": True,
-            "toolbar": [
-                [
-                    {"font": []},
-                    {"header": []},
-                    {"align": []},
-                    {"size": []},
-                    "bold",
-                    "italic",
-                    "underline",
-                    "strike",
-                    "blockquote",
-                    "formula",
-                    "indent",
-                    {"direction": []},
-                    "script",
-                    {"color": []},
-                    {"background": []},
-                ],
-                ["code-block", "link"],
-                ["clean"],
-                ["image", "video"],
-            ],
-        },
-    }
-}
 
 
 
@@ -233,6 +202,8 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [str(BASE_DIR.joinpath("static"))]
+STATIC_ROOT = STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 MEDIA_URL = "/"
 
@@ -243,3 +214,4 @@ MEDIA_ROOT = str(BASE_DIR.joinpath("static/img/"))
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
