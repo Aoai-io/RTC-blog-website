@@ -89,7 +89,7 @@
                                 {% for category in categories %}
                                     
                                     
-                                <a class="dropdown-item" href="./instructors-list-v1.html">
+                                <a class="dropdown-item" href="{% url 'courses_list' %}">
                                     {{category.title | title}}
                                 </a>
 

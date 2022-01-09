@@ -141,7 +141,7 @@ articles list
                     <div class="nav flex-column nav-vertical">
                         
                         {% for category in categories %}
-                        <a href="./blog-grid-v2.html" class="nav-link py-2">{{category}}</a>
+                        <a href="{% url 'courses_list' %}" class="nav-link py-2">{{category}}</a>
 
                         {% endfor %}
                             
@@ -152,7 +152,7 @@ articles list
                     </div>
                 </div>
 
-                <div class="border rounded mb-6 p-5 py-md-6 ps-md-6 pe-md-4">
+                <!-- <div class="border rounded mb-6 p-5 py-md-6 ps-md-6 pe-md-4">
                     <h4 class="mb-5">Recent Posts</h4>
                     <ul class="list-unstyled mb-0">
                         <li class="media mb-6 d-flex">
@@ -194,7 +194,7 @@ articles list
                             </div>
                         </li>
                     </ul>
-                </div>
+                </div> -->
 
                 <div class="border rounded mb-6 p-5 py-md-6 ps-md-6 pe-md-4">
                     <h4 class="mb-5">Tags</h4>
