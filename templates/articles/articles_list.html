@@ -45,7 +45,7 @@ articles list
                 <!-- Imgae -->
                 <div class="card-zoom">
                     <a href="{% url 'article_detail' article.pk %}" class="card-img d-block sk-thumbnail img-ratio-5 rounded">
-                        <img src="/{{article.cover}}" alt="..." class="rounded img-fluid">
+                        <img src="/static/img/{{article.cover}}" alt="..." class="rounded img-fluid">
                     </a>
                 </div>
 
@@ -64,7 +64,7 @@ articles list
                     <div class="d-md-flex align-items-center">
                         <div class="border rounded-circle d-inline-block mb-4 mb-md-0 me-4">
                             <div class="p-1">
-                                <img src="/{{article.author.profile.image}}" alt="..." class="rounded-circle" width="52"
+                                <img src="/static/img/{{article.author.profile.image}}" alt="..." class="rounded-circle" width="52"
                                     height="52">
                             </div>
                         </div>

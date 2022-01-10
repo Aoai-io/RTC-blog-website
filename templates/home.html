@@ -207,7 +207,7 @@ home page
                         </div>
 
                         <a href="{% url 'course_detail' course.pk  %}" class="card-img sk-thumbnail d-block">
-                            <img class="rounded shadow-light-lg" src="{{course.cover}}" alt="...">
+                            <img class="rounded shadow-light-lg" src="static/img/{{course.cover}}" alt="...">
                         </a>
 
                         <span
@@ -221,7 +221,7 @@ home page
                         <a href="#" class="d-block">
                             <div
                                 class="avatar avatar-xl badge-float position-absolute top-0 right-0 mt-n6 me-5 rounded-circle shadow border border-white border-w-lg">
-                                <img src="{{course.instructor.image}}" alt="..." class="avatar-img rounded-circle">
+                                <img src="static/img/{{course.instructor.image}}" alt="..." class="avatar-img rounded-circle">
                             </div>
                         </a>
 
@@ -311,7 +311,7 @@ home page
 <section class="position-relative py-8 py-md-11 py-xl-0">
     <div class="container position-xl-absolute center-xl">
         <div class="rounded-lg overflow-hidden text-center jarallax py-12 py-md-14" data-jarallax data-speed=".8"
-            style="background-image: url('{{STATIC_URL}}img/covers/cover-15.jpg');">
+            style="background-image: url('static/img/{{STATIC_URL}}img/covers/cover-15.jpg');">
             <h1 class="text-white font-lora fw-bold mb-1">Video Tour in Skola</h1>
             <p class="mb-8 text-white font-montserrat">Discover your perfect program in our courses.</p>
             <!-- Button -->
@@ -642,7 +642,7 @@ home page
                         </div>
 
                         <a href="#" class="card-img sk-thumbnail img-ratio-one d-block">
-                            <img class="shadow-light-lg rounded-circle h-100 o-f-c" src="/{{instructor.image}}"
+                            <img class="shadow-light-lg rounded-circle h-100 o-f-c" src="static/img/{{instructor.image}}"
                                 alt="...">
                         </a>
                     </div>
