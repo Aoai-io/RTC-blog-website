@@ -13,6 +13,7 @@ crispy-bootstrap5 = "*"
 django-phonenumber-field = "*"
 django-phonenumbers = "*"
 gunicorn = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 black = "*"

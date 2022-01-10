@@ -30,15 +30,19 @@ django-phonenumber-field==6.0.0
 
 django-phonenumbers==1.0.1
 
-django-quill-editor==0.1.34
-
 django
+
+gunicorn==20.1.0
 
 mysqlclient==2.1.0
 
 phonenumbers==8.12.40
 
 pillow==9.0.0
+
+psycopg2-binary==2.9.3
+
+setuptools==60.5.0; python_version >= '3.7'
 
 sqlparse==0.4.2; python_version >= '3.5'
 
