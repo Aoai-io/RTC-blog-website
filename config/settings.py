@@ -25,9 +25,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG", "False") == "True"
+DEBUG = os.getenv("DEBUG", "False") == "False"
 
-ALLOWED_HOSTS = os.getenv("DJANGO_ALLOED_HOSTS", "127.0.0.1,localhost").split(",")
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOED_HOSTS",
+                          "127.0.0.1,localhost").split(",")
 
 
 # Application definition
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
+    "whitenoise.runserver_nostatic",
     "django.contrib.staticfiles",
     # apps
     "articles",
@@ -56,16 +58,10 @@ INSTALLED_APPS = [
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 
-
-
-
-
-
-
-
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -101,16 +97,16 @@ WSGI_APPLICATION = "config.wsgi.application"
 if os.getenv('DATABASE_URL', "") != "":
     r = urlparse(os.environ.get("DATABASE_URL"))
     DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.path.relpath(r.path, "/"),
-        'USER': r.username,
-        'PASSWORD': r.password,
-        'HOST': r.hostname,
-        'PORT': r.port,
-        "OPTIONS": {"sslmode": "require"},
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': os.path.relpath(r.path, "/"),
+            'USER': r.username,
+            'PASSWORD': r.password,
+            'HOST': r.hostname,
+            'PORT': r.port,
+            "OPTIONS": {"sslmode": "require"},
+        }
     }
-}
 else:
     DATABASES = {
         'default': {
@@ -154,10 +150,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 STATICFILES_DIRS = [str(BASE_DIR.joinpath("static"))]
 STATIC_ROOT = STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = "/"
 
@@ -169,8 +165,6 @@ MEDIA_ROOT = str(BASE_DIR.joinpath("static/img/"))
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-
-from ckeditor.configs import DEFAULT_CONFIG  # noqa
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_IMAGE_BACKEND = "ckeditor_uploader.backends.PillowBackend"
@@ -187,9 +181,12 @@ CKEDITOR_CONFIGS = {
             ['Source', '-', 'Bold', 'Italic']
         ],
         'toolbar_YourCustomToolbarConfig': [
-            {'name': 'document', 'items': ['Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates']},
-            {'name': 'clipboard', 'items': ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
-            {'name': 'editing', 'items': ['Find', 'Replace', '-', 'SelectAll']},
+            {'name': 'document', 'items': [
+                'Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates']},
+            {'name': 'clipboard', 'items': [
+                'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
+            {'name': 'editing', 'items': [
+                'Find', 'Replace', '-', 'SelectAll']},
             {'name': 'forms',
              'items': ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton',
                        'HiddenField']},
@@ -204,7 +201,8 @@ CKEDITOR_CONFIGS = {
             {'name': 'insert',
              'items': ['Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe', "codesnippet", ]},
             '/',
-            {'name': 'styles', 'items': ['Styles', 'Format', 'Font', 'FontSize']},
+            {'name': 'styles', 'items': [
+                'Styles', 'Format', 'Font', 'FontSize']},
             {'name': 'colors', 'items': ['TextColor', 'BGColor']},
             {'name': 'tools', 'items': ['Maximize', 'ShowBlocks']},
             {'name': 'about', 'items': ['About']},
@@ -217,7 +215,7 @@ CKEDITOR_CONFIGS = {
             ]},
         ],
         'toolbar': 'YourCustomToolbarConfig',  # put selected toolbar config here
-        'toolbarGroups': [{ 'name': 'document', 'groups': [ 'mode', 'document', 'doctools' ] }],
+        'toolbarGroups': [{'name': 'document', 'groups': ['mode', 'document', 'doctools']}],
         # 'height': 291,
         # 'width': '100%',
         'filebrowserWindowHeight': 725,
@@ -231,7 +229,7 @@ CKEDITOR_CONFIGS = {
         # "filebrowserBrowseUrl": f"{str(BASE_DIR.joinpath('/static/img/'))}",
         # "imageUploadURL": f"{str(BASE_DIR.joinpath('/static/img/'))}",
         'extraPlugins': ','.join([
-            'uploadimage', # the upload image feature
+            'uploadimage',  # the upload image feature
             # your extra plugins here
             # 'div',
 
@@ -254,4 +252,3 @@ CKEDITOR_CONFIGS = {
         "codeSnippet_theme": "xcode",
     }
 }
-

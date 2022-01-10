@@ -14,9 +14,11 @@ django-phonenumber-field = "*"
 django-phonenumbers = "*"
 gunicorn = "*"
 psycopg2-binary = "*"
+whitenoise = "*"
 
 [dev-packages]
 black = "*"
+autopep8 = "*"
 
 [requires]
 python_version = "3.9"
