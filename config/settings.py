@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+from urllib.parse import urlparse
+from django.core.management.utils import get_random_secret_key
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,12 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-+vlcrvip-3qcw%ew)ev%nuf*qu$2@8%d89)ogb!_cdu)a3&akz"
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOED_HOSTS", "127.0.0.1,localhost").split(",")
 
 
 # Application definition
@@ -95,12 +97,27 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
+
+if os.getenv('DATABASE_URL', "") != "":
+    r = urlparse(os.environ.get("DATABASE_URL"))
+    DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.path.relpath(r.path, "/"),
+        'USER': r.username,
+        'PASSWORD': r.password,
+        'HOST': r.hostname,
+        'PORT': r.port,
+        "OPTIONS": {"sslmode": "require"},
     }
 }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'db.sqlite3',
+        }
+    }
 
 
 # Password validation
@@ -151,87 +168,6 @@ MEDIA_ROOT = str(BASE_DIR.joinpath("static/img/"))
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-# CKEDITOR_CONFIGS = {
-#     'default': {
-#         'skin': 'moono',
-#         # 'skin': 'office2013',
-#         'toolbar_Basic': [
-#             ['Source', '-', 'Bold', 'Italic']
-#         ],
-#         'toolbar_YourCustomToolbarConfig': [
-#             {'name': 'document', 'items': ['Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates']},
-#             {'name': 'clipboard', 'items': ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
-#             {'name': 'editing', 'items': ['Find', 'Replace', '-', 'SelectAll']},
-#             {'name': 'forms',
-#              'items': ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton',
-#                        'HiddenField']},
-#             '/',
-#             {'name': 'basicstyles',
-#              'items': ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat']},
-#             {'name': 'paragraph',
-#              'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-',
-#                        'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl',
-#                        'Language']},
-#             {'name': 'links', 'items': ['Link', 'Unlink', 'Anchor']},
-#             {'name': 'insert',
-#              'items': ['Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe']},
-#             '/',
-#             {'name': 'styles', 'items': ['Styles', 'Format', 'Font', 'FontSize']},
-#             {'name': 'colors', 'items': ['TextColor', 'BGColor']},
-#             {'name': 'tools', 'items': ['Maximize', 'ShowBlocks']},
-#             {'name': 'about', 'items': ['About']},
-#             '/',  # put this to force next toolbar on new line
-#             {'name': 'yourcustomtools', 'items': [
-#                 # put the name of your editor.ui.addButton here
-#                 'Preview',
-#                 'Maximize',
-
-#             ]},
-#         ],
-#         'toolbar': 'YourCustomToolbarConfig',  # put selected toolbar config here
-#         'toolbarGroups': [{ 'name': 'document', 'groups': [ 'mode', 'document', 'doctools' ] }],
-#         # 'height': 291,
-#         # 'width': '100%',
-#         'filebrowserWindowHeight': 725,
-#         'filebrowserWindowWidth': 940,
-#         'toolbarCanCollapse': True,
-#         'mathJaxLib': '//cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML',
-#         'tabSpaces': 4,
-#         "uploadUrl": f"/static/img/",
-#         "filebrowserUploadUrl": f"{str(BASE_DIR.joinpath('static/img/'))}",
-#         "filebrowserImageUploadUrl ": f"{str(BASE_DIR.joinpath('static/img/'))}",
-#         "filebrowserBrowseUrl": f"{str(BASE_DIR.joinpath('/static/img/'))}",
-#         "imageUploadURL": f"{str(BASE_DIR.joinpath('/static/img/'))}",
-#         'extraPlugins': ','.join([
-#             'uploadimage', # the upload image feature
-#             # your extra plugins here
-#             # 'div',
-
-#             'autolink',
-#             'autoembed',
-#             'embedsemantic',
-#             'autogrow',
-#             # 'devtools',
-#             'widget',
-#             'lineutils',
-#             'clipboard',
-#             'dialog',
-#             'dialogui',
-#             'elementspath',
-#         ]),
-#     }
-# }
-
-
-# CKEDITOR_UPLOAD_PATH = os.path.join(BASE_DIR, MEDIA_ROOT, 'ckeditor_media')
-# CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
-# CKEDITOR_ALLOW_NONIMAGE_FILES = False
-# CKEDITOR_BROWSE_SHOW_DIRS = True
-# CKEDITOR_RESTRICT_BY_DATE = True
-# CKEDITOR_IMAGE_BACKEND = "ckeditor_uploader.backends.PillowBackend"
-
-
 
 
 from ckeditor.configs import DEFAULT_CONFIG  # noqa
