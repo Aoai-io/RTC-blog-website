@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-home page
+RTC pro
 {% endblock title %}
 
 {% block content %}
@@ -207,7 +207,7 @@ home page
                         </div>
 
                         <a href="{% url 'course_detail' course.pk  %}" class="card-img sk-thumbnail d-block">
-                            <img class="rounded shadow-light-lg" src="static/img/{{course.cover}}" alt="...">
+                            <img class="rounded shadow-light-lg" src="{{ MEDIA_URL }}{{course.cover}}" alt="...">
                         </a>
 
                         <span
@@ -221,7 +221,7 @@ home page
                         <a href="#" class="d-block">
                             <div
                                 class="avatar avatar-xl badge-float position-absolute top-0 right-0 mt-n6 me-5 rounded-circle shadow border border-white border-w-lg">
-                                <img src="static/img/{{course.instructor.image}}" alt="..." class="avatar-img rounded-circle">
+                                <img src="{{ MEDIA_URL }}{{course.instructor.image}}" alt="..." class="avatar-img rounded-circle">
                             </div>
                         </a>
 
@@ -311,8 +311,8 @@ home page
 <section class="position-relative py-8 py-md-11 py-xl-0">
     <div class="container position-xl-absolute center-xl">
         <div class="rounded-lg overflow-hidden text-center jarallax py-12 py-md-14" data-jarallax data-speed=".8"
-            style="background-image: url('static/img/{{STATIC_URL}}img/covers/cover-15.jpg');">
-            <h1 class="text-white font-lora fw-bold mb-1">Video Tour in Skola</h1>
+            style="background-image: url('{% static 'img/covers/cover-15.jpg' %}')">
+            <h1 class="text-white font-lora fw-bold mb-1">Video Tour in RTCpro</h1>
             <p class="mb-8 text-white font-montserrat">Discover your perfect program in our courses.</p>
             <!-- Button -->
             <a href="https://www.youtube.com/watch?v=9I-Y6VQ6tyI"
@@ -607,7 +607,6 @@ home page
         <div class="mx-n3 mx-md-n4"
             data-flickity='{"pageDots": true, "prevNextButtons": false, "cellAlign": "left", "wrapAround": true, "imagesLoaded": true}'>
 
-
             {% for instructor in instructors %}
 
             <div class="col-12 mw-xl-20 mw-md-25 text-center py-5 px-3 px-md-4"
@@ -642,8 +641,8 @@ home page
                         </div>
 
                         <a href="#" class="card-img sk-thumbnail img-ratio-one d-block">
-                            <img class="shadow-light-lg rounded-circle h-100 o-f-c" src="articles/{{instructor.image}}"
-                                alt="...">
+                            <img class="shadow-light-lg rounded-circle h-100 o-f-c" src="{{ MEDIA_URL }}{{ instructor.image }}"
+                                alt="">
                         </a>
                     </div>
 
@@ -669,10 +668,8 @@ home page
     <div class="container text-center py-xl-4">
         <div class="row">
             <div class="col-xl-8 mx-auto text-capitalize">
-                <h1 class="font-lora text-white fw-bold mb-4">Subscribe our newsletter</h1>
-                <p class="font-montserrat text-white mb-md-8 mb-6">Your download should start automatically, if not
-                    Click here. Should I give up, huh?.</p>
-                <div class="mx-md-9">
+                <h1 class="font-lora text-white fw-bold mb-4">Keep in touch</h1>
+                
                     <form class="shadow">
                         <div class="input-group">
                             <input type="text" class="form-control font-montserrat placeholder-1"

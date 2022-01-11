@@ -15,7 +15,7 @@
         <div class="border rounded-circle d-inline-block mb-4 mb-md-0 me-4">
           <div class="p-1">
             <img
-              src="/static/img/{{article.author.profile.image}}"
+              src="{{ MEDIA_URL }}{{article.author.profile.image}}"
               alt="..."
               class="rounded-circle"
               width="52"
@@ -36,7 +36,7 @@
 </div>
 
 <div class="mb-8 sk-thumbnail img-ratio-7">
-  <img src="/static/img/{{article.cover}}" alt="..." class="img-fluid" />
+  <img src="{{ MEDIA_URL }}{{article.cover}}" alt="..." class="img-fluid" />
 </div>
 
 <div class="container">
@@ -228,10 +228,8 @@
     </div>
   </div>
 
-{% comment %}
-  
+  {% comment %}
 
-  
   <div class="row align-items-end mb-4 mb-md-7">
     <div class="col-md mb-4 mb-md-0">
       <h1 class="mb-1">Latest News</h1>
@@ -263,7 +261,6 @@
       </a>
     </div>
   </div>
-
 
   <div class="row row-cols-md-2 row-cols-lg-3 mb-8 mb-md-11">
     <div class="col-md mb-5 mb-lg-0">

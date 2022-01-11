@@ -6,7 +6,7 @@ from django.db.models.deletion import CASCADE
 
 class Profile(models.Model):
 
-    image = models.ImageField( upload_to='img/profiles/', null=True, blank=True)
+    image = models.ImageField( upload_to='editors_profile/', null=True, blank=True)
     user = models.OneToOneField("auth.user", on_delete=models.CASCADE)
 
     
