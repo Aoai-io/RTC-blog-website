@@ -1,4 +1,4 @@
-import uuid
+# import uuid
 from django.db import models
 from django.db.models.deletion import CASCADE
 from instructors.models import Instructor
@@ -68,7 +68,7 @@ province = (
 
 
 class Course(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    # id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=50)
     instructor = models.ForeignKey(Instructor, on_delete=CASCADE)
     cover = models.ImageField(upload_to="courses/", blank=True, null=True)
