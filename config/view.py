@@ -68,7 +68,7 @@ def Deploy(request):
     file_object.write('\n')
     file_object.close()
 
-    # os.system('python manage.py migrate >> tmp.deploy.txt')
+    os.system('python manage.py migrate >> tmp.deploy.txt')
     
     file_object = open('tmp.deploy.txt', 'a')
     file_object.write('\n')
