@@ -68,7 +68,7 @@ def Deploy(request):
     file_object.write('\n')
     file_object.close()
 
-    os.system('python manage.py migrate >> tmp.deploy.txt')
+    # os.system('python manage.py migrate >> tmp.deploy.txt')
     
     file_object = open('tmp.deploy.txt', 'a')
     file_object.write('\n')
@@ -76,8 +76,7 @@ def Deploy(request):
     file_object.write('\n')
     file_object.close()
 
-    file_name = f'deploy-log-{datetime.datetime.now()}.txt'
 
     os.system('cp /home/osama/RTC-blog-website/tmp.deploy.txt /home/osama/logs/deploy.txt')
-    os.system(f'rm tmp.deploy.txt')
+    os.system('rm tmp.deploy.txt')
     return HttpResponse("<h1>Deploy Successful</h1>")
