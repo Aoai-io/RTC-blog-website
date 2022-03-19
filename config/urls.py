@@ -17,11 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
-from .view import HomePageView
+from .view import HomePageView, Deploy
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomePageView, name='home'),
+    path('dev/deploy/admin/go', Deploy, name='deploy'),
     path('articles/', include('articles.urls')),
     path('instructors/', include('instructors.urls')),
     path('courses/', include('courses.urls')),
