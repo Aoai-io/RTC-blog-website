@@ -77,6 +77,11 @@ def Deploy(request):
     file_object.close()
 
 
+
+    os.system('echo Omar@wolf.9803 | sudo -S systemctl restart gunicorn.service')
+    os.system('echo Omar@wolf.9803 | sudo -S systemctl restart nginx.service')
+
+
     os.system('cp /home/osama/RTC-blog-website/tmp.deploy.txt /home/osama/logs/deploy.txt')
     os.system('rm tmp.deploy.txt')
     return HttpResponse("<h1>Deploy Successful</h1>")
