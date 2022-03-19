@@ -36,53 +36,50 @@ def HomePageView(request):
 def Deploy(request):
     
     
-    try:
-        os.system('touch tmp.deploy.txt')
 
-        file_object = open('tmp.deploy.txt', 'a')
-        file_object.write(f'{datetime.datetime.now()}')
-        file_object.write('\n')
-        file_object.write('###################################################')
-        file_object.write('\n')
-        file_object.close()
+    os.system('touch tmp.deploy.txt')
 
-        os.system(env('DEFAULT_GIT_QUERY') + ' >> tmp.deploy.txt')
+    file_object = open('tmp.deploy.txt', 'a')
+    file_object.write(f'{datetime.datetime.now()}')
+    file_object.write('\n')
+    file_object.write('###################################################')
+    file_object.write('\n')
+    file_object.close()
 
-        file_object = open('tmp.deploy.txt', 'a')
-        file_object.write('\n')
-        file_object.write('###################################################')
-        file_object.write('\n')
-        file_object.close()
+    os.system(env('DEFAULT_GIT_QUERY') + ' >> tmp.deploy.txt')
 
-        os.system('source ../venv/bin/activate >> tmp.deploy.txt')
+    file_object = open('tmp.deploy.txt', 'a')
+    file_object.write('\n')
+    file_object.write('###################################################')
+    file_object.write('\n')
+    file_object.close()
 
-        file_object = open('tmp.deploy.txt', 'a')
-        file_object.write('\n')
-        file_object.write('###################################################')
-        file_object.write('\n')
-        file_object.close()
+    os.system('source ../venv/bin/activate >> tmp.deploy.txt')
 
-        os.system('pip install -r requirements.txt >> tmp.deploy.txt')
+    file_object = open('tmp.deploy.txt', 'a')
+    file_object.write('\n')
+    file_object.write('###################################################')
+    file_object.write('\n')
+    file_object.close()
 
-        file_object = open('tmp.deploy.txt', 'a')
-        file_object.write('\n')
-        file_object.write('###################################################')
-        file_object.write('\n')
-        file_object.close()
+    os.system('pip install -r requirements.txt >> tmp.deploy.txt')
 
-        os.system('python manage.py migrate >> tmp.deploy.txt')
-        
-        file_object = open('tmp.deploy.txt', 'a')
-        file_object.write('\n')
-        file_object.write('###################################################')
-        file_object.write('\n')
-        file_object.close()
+    file_object = open('tmp.deploy.txt', 'a')
+    file_object.write('\n')
+    file_object.write('###################################################')
+    file_object.write('\n')
+    file_object.close()
 
-        file_name = f'deploy-log-{datetime.datetime.now()}.txt'
+    os.system('python manage.py migrate >> tmp.deploy.txt')
+    
+    file_object = open('tmp.deploy.txt', 'a')
+    file_object.write('\n')
+    file_object.write('###################################################')
+    file_object.write('\n')
+    file_object.close()
 
-        os.system(f'cp tmp.deploy.txt ../logs/{file_name}')
-        os.system(f'rm tmp.deploy.txt')
-        return HttpResponse("<h1>Deploy Successful</h1>")
-    except:
-        return HttpResponse(os.system('<h1>Deploy Failed</h1>'))
+    file_name = f'deploy-log-{datetime.datetime.now()}.txt'
 
+    os.system(f'cp tmp.deploy.txt ../logs/{file_name}')
+    # os.system(f'rm tmp.deploy.txt')
+    return HttpResponse("<h1>Deploy Successful</h1>")
