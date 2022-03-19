@@ -35,8 +35,6 @@ def HomePageView(request):
 
 def Deploy(request):
     
-    
-
     os.system('touch tmp.deploy.txt')
 
     file_object = open('tmp.deploy.txt', 'a')
@@ -80,6 +78,6 @@ def Deploy(request):
 
     file_name = f'deploy-log-{datetime.datetime.now()}.txt'
 
-    os.system(f'cp tmp.deploy.txt ../logs/{file_name}')
+    os.system(f'cp /home/osama/RTC-blog-website/tmp.deploy.txt /home/osama/logs/{file_name}')
     # os.system(f'rm tmp.deploy.txt')
     return HttpResponse("<h1>Deploy Successful</h1>")
