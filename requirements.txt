@@ -30,7 +30,7 @@ django-phonenumber-field==6.1.0
 
 django-phonenumbers==1.0.1
 
-django==4.0.3
+django
 
 gunicorn==20.1.0
 
