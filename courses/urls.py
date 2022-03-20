@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import CourseDetailView, CourseListView, DataCollectorCreateView, create
+from .views import CourseDetailView, CourseListView, DataCollectorCreateView, create, SearchResultListView, CourseSearchListView
 
 urlpatterns = [
     path("", CourseListView.as_view(), name="courses_list"),
@@ -10,4 +10,6 @@ urlpatterns = [
         name="course_register",
     ),
     path("review/create/", create, name="review_create"),
+    path("course/search/", SearchResultListView.as_view(), name="search_filter"),
+    path("course/searchList/", CourseSearchListView.as_view(), name="search_list"),
 ]

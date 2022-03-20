@@ -6,8 +6,6 @@ from django.urls import reverse
 from phonenumber_field.modelfields import PhoneNumberField
 from ckeditor.fields import RichTextField
 
-# from django.contrib.auth.models import User
-
 # Create your models here.
 
 
@@ -20,7 +18,7 @@ class Category(models.Model):
 
 class SubCategory(models.Model):
     title = models.CharField(max_length=50)
-    category = models.ForeignKey(Category, on_delete=CASCADE)
+    category = models.ForeignKey(Category, on_delete=CASCADE, related_name='sub_category')
 
     def __str__(self):
         return str(self.title).title()
@@ -73,7 +71,7 @@ class Course(models.Model):
     instructor = models.ForeignKey(Instructor, on_delete=CASCADE)
     cover = models.ImageField(upload_to="courses/", blank=True, null=True)
     sub_category = models.ForeignKey(
-        SubCategory, on_delete=models.CASCADE, null=True, blank=True
+        SubCategory, related_name='course',on_delete=models.CASCADE, null=True, blank=True
     )
     old_price = models.PositiveBigIntegerField(null=True, blank=True)
     price = models.PositiveBigIntegerField()

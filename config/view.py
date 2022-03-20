@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from articles.models import Article
-from courses.models import Category, Course
+from courses.models import Category, Course, SubCategory
 from instructors.models import Instructor
 from django.http import HttpResponse
 import datetime
@@ -25,11 +25,15 @@ def HomePageView(request):
     global categories
     categories = Category.objects.all()
 
+    global sub_categories
+    sub_categories = SubCategory.objects.all()
+
     context = {
     'articles': articles,
     'courses': courses,
     'instructors': instructors,
     'categories': categories,
+    'sub_categories': sub_categories,
 }
     return render(request, 'home.html', context=context)
 
