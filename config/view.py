@@ -47,8 +47,8 @@ def send_email(request):
     send_mail(
         'test email',
         'Here is the message.',
-        'support@aoai.io',
-        [request.POST.get('email')],
+        from_email='support@aoai.io',
+        recipient_list=[request.POST.get('email')],
         fail_silently=False,
     )
     return redirect('/')
