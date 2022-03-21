@@ -62,5 +62,5 @@ def Deploy(request):
     # os.system(
     #     "cp /home/osama/RTC-blog-website/tmp.deploy.txt /home/osama/logs/deploy.txt 2>&1 &"
     # )
-    # os.system("rm tmp.deploy.txt 2>&1 &")
+    os.system("rm tmp.deploy.txt")
     return HttpResponse("<h1>deployed</h1>")
