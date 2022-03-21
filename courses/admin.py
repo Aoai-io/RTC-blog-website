@@ -5,5 +5,8 @@ from .models import Course, Category, SubCategory, DataCollector
 admin.site.register(Course)
 admin.site.register(Category)
 admin.site.register(SubCategory)
-admin.site.register(DataCollector)
 
+class DataCollectorAdmin(admin.ModelAdmin):
+    readonly_fields = ("created_at", "updated_at")
+
+admin.site.register(DataCollector,DataCollectorAdmin)

@@ -160,6 +160,8 @@ class DataCollector(models.Model):
     province = models.CharField(max_length=50, choices=province)
     city = models.CharField(max_length=50)
     company = models.CharField(max_length=50, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
 
     class Meta:
         """Meta definition for DataCollector."""
