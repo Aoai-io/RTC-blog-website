@@ -1,4 +1,4 @@
-#!/bin/bsh
+#!/bin/bash
 
 echo $(date)
 echo $(cd /home/osama/RTC-blog-website)
