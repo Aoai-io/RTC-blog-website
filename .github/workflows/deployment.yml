@@ -6,7 +6,7 @@ name: Start Deployment Job
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [main]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -16,13 +16,13 @@ jobs:
   deployment:
     runs-on: ubuntu-latest
     steps:
-    - name: Deploy Stage
-      uses: fjogeleit/http-request-action@v1
-      with:
-        url: 'https://rtcproiq.com/dev/deploy/admin/go'
-        method: 'GET'
-# #         username: ${{ secrets.AWX_USER }}
-#         password: ${{ secrets.AWX_PASSWORD }}
+      - name: Deploy Stage
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: "https://rtcproiq.com/dev/deploy/admin/go"
+          method: "GET"
+  # #         username: ${{ secrets.AWX_USER }}
+  #         password: ${{ secrets.AWX_PASSWORD }}
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
