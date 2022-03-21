@@ -40,7 +40,7 @@ def HomePageView(request):
 
 def Deploy(request):
 
-    # os.system("touch tmp.deploy.txt")
+    os.system("touch tmp.deploy.txt")
 
     # file_object = open("tmp.deploy.txt", "a")
     # file_object.write(f"{datetime.datetime.now()}\n")

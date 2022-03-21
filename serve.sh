@@ -10,7 +10,7 @@ echo $(date)
 echo $(pwd)
 
 echo $(pip install -r requirements.txt)
-echo $(python manage.py makemigration && python manage.py migrate)
+echo $(python manage.py makemigrations && python manage.py migrate)
 echo $(python manage.py collectstatic --noinput)
 
 echo $(echo Omar@wolf.9803 | sudo -S systemctl restart gunicorn.service)
