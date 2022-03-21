@@ -49,9 +49,9 @@ def Deploy(request):
 
     os.system(env("DEFAULT_GIT_QUERY") + " >> tmp.deploy.txt 2>&1 &")
 
-    os.system("source ../venv/bin/activate >> tmp.deploy.txt 2>&1 &")
+    os.system("source /home/osama/venv/bin/activate >> tmp.deploy.txt 2>&1 &")
 
-    os.system("pip install -r requirements.txt >> tmp.deploy.txt 2>&1 &")
+    os.system("pip install -r /home/osama/RTC-blog-website/requirements.txt >> tmp.deploy.txt 2>&1 &")
 
     os.system("python manage.py migrate >> tmp.deploy.txt 2>&1 &")
 
