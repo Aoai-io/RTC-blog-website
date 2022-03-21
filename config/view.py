@@ -8,7 +8,7 @@ import os
 import environ
 
 env = environ.Env()
-environ.Env.read_env('.env')
+environ.Env.read_env(".env")
 
 
 # Create your views here.
@@ -29,60 +29,37 @@ def HomePageView(request):
     sub_categories = SubCategory.objects.all()
 
     context = {
-    'articles': articles,
-    'courses': courses,
-    'instructors': instructors,
-    'categories': categories,
-    'sub_categories': sub_categories,
-}
-    return render(request, 'home.html', context=context)
+        "articles": articles,
+        "courses": courses,
+        "instructors": instructors,
+        "categories": categories,
+        "sub_categories": sub_categories,
+    }
+    return render(request, "home.html", context=context)
+
 
 def Deploy(request):
-    
-    os.system('touch tmp.deploy.txt')
 
-    file_object = open('tmp.deploy.txt', 'a')
-    file_object.write(f'{datetime.datetime.now()}')
-    file_object.write('\n')
-    file_object.write('###################################################')
-    file_object.write('\n')
+    os.system("touch tmp.deploy.txt")
+
+    file_object = open("tmp.deploy.txt", "a")
+    file_object.write(f"{datetime.datetime.now()}\n")
+    file_object.write("###################################################\n")
     file_object.close()
 
-    os.system(env('DEFAULT_GIT_QUERY') + ' >> tmp.deploy.txt')
+    os.system(env("DEFAULT_GIT_QUERY") + " >> tmp.deploy.txt")
 
-    file_object = open('tmp.deploy.txt', 'a')
-    file_object.write('\n')
-    file_object.write('###################################################')
-    file_object.write('\n')
-    file_object.close()
+    os.system("source ../venv/bin/activate >> tmp.deploy.txt")
 
-    os.system('source ../venv/bin/activate >> tmp.deploy.txt')
+    os.system("pip install -r requirements.txt >> tmp.deploy.txt")
 
-    file_object = open('tmp.deploy.txt', 'a')
-    file_object.write('\n')
-    file_object.write('###################################################')
-    file_object.write('\n')
-    file_object.close()
+    os.system("python manage.py migrate >> tmp.deploy.txt")
 
-    os.system('pip install -r requirements.txt >> tmp.deploy.txt')
+    os.system("echo Omar@wolf.9803 | sudo -S systemctl restart gunicorn.service")
+    os.system("echo Omar@wolf.9803 | sudo -S systemctl restart nginx.service")
 
-    file_object = open('tmp.deploy.txt', 'a')
-    file_object.write('\n')
-    file_object.write('###################################################')
-    file_object.write('\n')
-    file_object.close()
-
-    os.system('python manage.py migrate >> tmp.deploy.txt')
-    
-    file_object = open('tmp.deploy.txt', 'a')
-    file_object.write('\n')
-    file_object.write('###################################################')
-    file_object.write('\n')
-    file_object.close()
-
-    os.system('echo Omar@wolf.9803 | sudo -S systemctl restart gunicorn.service')
-    os.system('echo Omar@wolf.9803 | sudo -S systemctl restart nginx.service')
-
-    os.system('cp /home/osama/RTC-blog-website/tmp.deploy.txt /home/osama/logs/deploy.txt')
-    os.system('rm tmp.deploy.txt')
+    os.system(
+        "cp /home/osama/RTC-blog-website/tmp.deploy.txt /home/osama/logs/deploy.txt"
+    )
+    # os.system("rm tmp.deploy.txt")
     return HttpResponse("<h1>Deploy Successful</h1>")
