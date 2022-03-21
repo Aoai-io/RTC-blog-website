@@ -47,19 +47,19 @@ def Deploy(request):
     file_object.write("###################################################\n")
     file_object.close()
 
-    os.system(env("DEFAULT_GIT_QUERY") + " >> tmp.deploy.txt")
+    os.system(env("DEFAULT_GIT_QUERY") + " >> tmp.deploy.txt 2>&1 &")
 
-    os.system("source ../venv/bin/activate >> tmp.deploy.txt")
+    os.system("source ../venv/bin/activate >> tmp.deploy.txt 2>&1 &")
 
-    os.system("pip install -r requirements.txt >> tmp.deploy.txt")
+    os.system("pip install -r requirements.txt >> tmp.deploy.txt 2>&1 &")
 
-    os.system("python manage.py migrate >> tmp.deploy.txt")
+    os.system("python manage.py migrate >> tmp.deploy.txt 2>&1 &")
 
-    os.system("echo Omar@wolf.9803 | sudo -S systemctl restart gunicorn.service")
-    os.system("echo Omar@wolf.9803 | sudo -S systemctl restart nginx.service")
+    os.system("echo Omar@wolf.9803 | sudo -S systemctl restart gunicorn.service 2>&1 &")
+    os.system("echo Omar@wolf.9803 | sudo -S systemctl restart nginx.service 2>&1 &")
 
     os.system(
-        "cp /home/osama/RTC-blog-website/tmp.deploy.txt /home/osama/logs/deploy.txt"
+        "cp /home/osama/RTC-blog-website/tmp.deploy.txt /home/osama/logs/deploy.txt 2>&1 &"
     )
-    os.system("rm tmp.deploy.txt")
-    return HttpResponse("<h1>Deploy Successful</h1>")
+    os.system("rm tmp.deploy.txt 2>&1 &")
+    return HttpResponse("deployed")
