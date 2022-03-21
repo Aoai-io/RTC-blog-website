@@ -45,7 +45,7 @@ def Deploy(request):
 
 def send_email(request):
     send_mail(
-        'Subject here',
+        'test email',
         'Here is the message.',
         'support@aoai.io',
         [request.POST.get('email')],

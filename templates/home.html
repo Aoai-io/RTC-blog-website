@@ -671,7 +671,7 @@ RTC pro
             <div class="col-xl-8 mx-auto text-capitalize">
                 <h1 class="font-lora text-white fw-bold mb-4">Keep in touch</h1>
 
-                <form action="{% url 'send_email' %}" method="get" class="shadow">
+                <form action="{% url 'send_email' %}" method="post" class="shadow">
                     {% csrf_token %}
                     <div class="input-group">
                         <input type="email" class="form-control font-montserrat placeholder-1"
