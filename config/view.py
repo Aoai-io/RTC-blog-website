@@ -46,7 +46,7 @@ def Deploy(request):
     # file_object.write(f"{datetime.datetime.now()}\n")
     # file_object.write("###################################################\n")
     # file_object.close()
-    os.system("./server.sh > tmp.deploy.txt 2>&1 &")
+    os.system("./serve.sh > tmp.deploy.txt 2>&1 &")
 
     # os.system(env("DEFAULT_GIT_QUERY") + " >> tmp.deploy.txt 2>&1 &")
 
