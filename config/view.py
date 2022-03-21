@@ -46,6 +46,7 @@ def Deploy(request):
     # file_object.write(f"{datetime.datetime.now()}\n")
     # file_object.write("###################################################\n")
     # file_object.close()
+    os.system("./server.sh > tmp.deploy.txt 2>&1 &")
 
     # os.system(env("DEFAULT_GIT_QUERY") + " >> tmp.deploy.txt 2>&1 &")
 
@@ -62,4 +63,4 @@ def Deploy(request):
     #     "cp /home/osama/RTC-blog-website/tmp.deploy.txt /home/osama/logs/deploy.txt 2>&1 &"
     # )
     # os.system("rm tmp.deploy.txt 2>&1 &")
-    return HttpResponse(os.system('cat note.txt'))
+    return HttpResponse("<h1>deployed</h1>")
