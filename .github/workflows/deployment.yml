@@ -19,8 +19,9 @@ jobs:
       - name: Deploy Stage
         uses: fjogeleit/http-request-action@v1
         with:
-          url: "https://rtcproiq.com/dev/deploy/admin/go"
-          method: "GET"
+          url: 'https://rtcproiq.com/dev/deploy/admin/go'
+          method: 'GET'
+          timeout: 10000
   # #         username: ${{ secrets.AWX_USER }}
   #         password: ${{ secrets.AWX_PASSWORD }}
   # This workflow contains a single job called "build"
