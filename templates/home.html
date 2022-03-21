@@ -671,14 +671,16 @@ RTC pro
             <div class="col-xl-8 mx-auto text-capitalize">
                 <h1 class="font-lora text-white fw-bold mb-4">Keep in touch</h1>
 
-                <form class="shadow">
+                <form action="{% url 'send_email' %}" method="get" class="shadow">
+                    {% csrf_token %}
                     <div class="input-group">
-                        <input type="text" class="form-control font-montserrat placeholder-1"
+                        <input type="email" class="form-control font-montserrat placeholder-1"
                             placeholder="Enter your email" aria-label="Enter your email"
+                            name="email"
                             aria-describedby="button-addon2">
                         <div class="input-group-append">
                             <button class="btn btn-mongoose btn-sm-wide text-white-all font-montserrat fw-bold"
-                                type="button" id="button-addon2">Subscribe</button>
+                                type="submit" id="button-addon2">Subscribe</button>
                         </div>
                     </div>
                 </form>

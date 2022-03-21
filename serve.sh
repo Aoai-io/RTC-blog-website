@@ -15,5 +15,6 @@ echo $(/home/osama/venv/bin/python manage.py collectstatic --noinput)
 
 echo $(echo Omar@wolf.9803 | sudo -S systemctl restart gunicorn.service)
 echo $(echo Omar@wolf.9803 | sudo -S systemctl restart nginx.service)
+echo "Sucssesful"
 echo $(cp /home/osama/RTC-blog-website/tmp.deploy.txt /home/osama/logs/deploy.txt)
 echo $(rm /home/osama/RTC-blog-website/tmp.deploy.txt)

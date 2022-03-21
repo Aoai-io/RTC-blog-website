@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
-from .view import HomePageView, Deploy
+from .view import HomePageView, Deploy, send_email
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,6 +26,7 @@ urlpatterns = [
     path('articles/', include('articles.urls')),
     path('instructors/', include('instructors.urls')),
     path('courses/', include('courses.urls')),
+    path('send_email/', send_email, name='send_email'),
 ] 
 
 if settings.DEBUG:
