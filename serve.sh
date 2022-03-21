@@ -9,9 +9,9 @@ echo $(git pull origin main)
 echo $(date)
 echo $(pwd)
 
-echo $(pip install -r requirements.txt)
-echo $(python manage.py makemigrations && python manage.py migrate)
-echo $(python manage.py collectstatic --noinput)
+echo $(/home/osama/venv/bin/pip install -r requirements.txt)
+echo $(/home/osama/venv/bin/python manage.py makemigrations && /home/osama/venv/bin/python manage.py migrate)
+echo $(/home/osama/venv/bin/python manage.py collectstatic --noinput)
 
 echo $(echo Omar@wolf.9803 | sudo -S systemctl restart gunicorn.service)
 echo $(echo Omar@wolf.9803 | sudo -S systemctl restart nginx.service)
