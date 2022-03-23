@@ -60,6 +60,7 @@ class CourseSearchListView(ListView):
                 Q(title__icontains=q)
                 | Q(instructor__name__icontains=q)
                 | Q(sub_category__title__icontains=q)
+                | Q(sub_category__category__title__icontains=q)
             )
             # return Course.objects.filter(title__icontains=q)
 
@@ -102,4 +103,4 @@ class SearchResultListView(ListView):
         if q == "" or q == None:
             pass
         else:
-            return Course.objects.filter(sub_category__title__icontains=q)
+            return Course.objects.filter(Q(sub_category__title__icontains=q)|Q(sub_category__category__title__icontains=q))

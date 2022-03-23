@@ -17,17 +17,22 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
-from .view import HomePageView, Deploy, send_email
+from .views import HomePageView, Deploy, send_email, privacy_policy
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', HomePageView, name='home'),
-    path('dev/deploy/admin/go', Deploy, name='deploy'),
-    path('articles/', include('articles.urls')),
-    path('instructors/', include('instructors.urls')),
-    path('courses/', include('courses.urls')),
-    path('send_email/', send_email, name='send_email'),
-] 
+    path("admin/clearcache/", include("clearcache.urls")),
+    path("admin/", admin.site.urls),
+    path("", HomePageView, name="home"),
+    path("privacy_policy/", privacy_policy, name="privacy_policy"),
+    path("dev/deploy/admin/go", Deploy, name="deploy"),
+    path("articles/", include("articles.urls")),
+    path("instructors/", include("instructors.urls")),
+    path("courses/", include("courses.urls")),
+    path("send_email/", send_email, name="send_email"),
+]
+
+handler404 = "config.views.page_not_found_view"
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

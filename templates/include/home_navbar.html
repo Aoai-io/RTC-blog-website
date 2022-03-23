@@ -2,367 +2,344 @@
     ================================================== -->
 {% load static %}
 <div class="d-none d-xl-block bg-mongoose py-1 position-relative z-index-2">
-  <div class="container">
-    <div class="d-flex align-items-center">
-      <ul class="nav mx-n3 line-height-one font-montserrat">
-        <li class="nav-item px-3">
-          <span class="font-size-xs text-white">(+964) 782 333 3726</span>
-        </li>
-        <li class="nav-item px-3">
-          <span class="font-size-xs text-white">info@rtcproiq.com</span>
-        </li>
-      </ul>
+    <div class="container">
+        <div class="d-flex align-items-center">
+            <ul class="nav mx-n3 line-height-one font-montserrat">
+                <li class="nav-item px-3">
+                    <span class="font-size-xs text-white">(+964) 782 333 3726</span>
+                </li>
+                <li class="nav-item px-3">
+                    <span class="font-size-xs text-white">info@rtcproiq.com</span>
+                </li>
+            </ul>
 
-      <ul class="nav ms-auto me-n3 font-size-sm">
-        <li class="nav-item px-3">
-          <a href="#" class="nav-link p-0 text-white">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-        </li>
-        <li class="nav-item px-3">
-          <a href="#" class="nav-link p-0 text-white">
-            <i class="fab fa-instagram"></i>
-          </a>
-        </li>
-        <li class="nav-item px-3">
-          <a href="#" class="nav-link p-0 text-white">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-        </li>
-      </ul>
-      <div class="ms-5">
-        <select
-          class="custom-select custom-select-xs text-white custom-select-white font-montserrat bg-transparent border-0 font-size-xs"
-          data-choices>
-          <option>English</option>
-          <option>Arabic</option>
-        </select>
-      </div>
+            <ul class="nav ms-auto me-n3 font-size-sm">
+                <li class="nav-item px-3">
+                    <a href="#" class="nav-link p-0 text-white">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </li>
+                <li class="nav-item px-3">
+                    <a href="#" class="nav-link p-0 text-white">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+                <li class="nav-item px-3">
+                    <a href="#" class="nav-link p-0 text-white">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </li>
+            </ul>
+            <div class="ms-5">
+                <select
+                    class="custom-select custom-select-xs text-white custom-select-white font-montserrat bg-transparent border-0 font-size-xs"
+                    data-choices>
+                    <option>English</option>
+                    <option>Arabic</option>
+                </select>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 <header class="navbar navbar-expand-xl navbar-dark z-index-1">
-  <div class="container">
-    <!-- Brand -->
-    <a class="navbar-brand filter-none" href="/">
-      <img src="{% static 'img/logo.png' %}" class="navbar-brand-img" alt="..." />
-    </a>
-
-    <!-- Collapse -->
-    <div class="collapse navbar-collapse z-index-lg" id="navbarCollapse">
-      <!-- Toggler -->
-      <button class="navbar-toggler outline-0 text-primary" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <!-- Icon -->
-        <svg width="16" height="17" viewBox="0 0 16 17" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0.142135 2.00015L1.55635 0.585938L15.6985 14.7281L14.2843 16.1423L0.142135 2.00015Z"
-            fill="currentColor"></path>
-          <path d="M14.1421 1.0001L15.5563 2.41431L1.41421 16.5564L0 15.1422L14.1421 1.0001Z" fill="currentColor">
-          </path>
-        </svg>
-      </button>
-
-      <!-- Navigation -->
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle px-xl-4 text-uppercase" id="navbarCourses" data-bs-toggle="dropdown"
-            href="#" aria-haspopup="true" aria-expanded="false">
-            Courses
-          </a>
-          <div class="dropdown-menu border-xl shadow-none dropdown-menu-md" aria-labelledby="navbarCourses">
-            <div class="row gx-0">
-              <div class="col-md-4">
-                <!-- Heading -->
-
-                {% for category in categories %}
-
-                <a class="dropdown-item" href="{% url 'courses_list' %}">
-                  {{category.title | title}}
-                  <hr>
-                </a>
-
-                {% endfor %}
-              </div>
-            </div>
-          </div>
-          <!-- / .row -->
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle px-xl-4 text-uppercase" id="navbarPages" data-bs-toggle="dropdown" href="#"
-            aria-haspopup="true" aria-expanded="false">
-            Pages
-          </a>
-          <div class="dropdown-menu border-sm shadow-none dropdown-menu-sm" aria-labelledby="navbarPages">
-            <div class="row gx-0">
-              <div class="col-12 col-lg-12">
-                <!-- List -->
-                <a class="dropdown-item" href="#"> Page 100 </a>
-                <a class="dropdown-item" href="#"> Page 200 </a>
-                <a class="dropdown-item" href="#"> Page 300 </a>
-              </div>
-            </div>
-          </div>
-          <!-- / .row -->
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link px-xl-4 text-uppercase" id="navbarBlog" href="{% url 'articles_list' %}"
-            aria-haspopup="true" aria-expanded="false">
-            Blog
-          </a>
-        </li>
-
-        <!-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle px-xl-4 text-uppercase" id="navbarShop" data-bs-toggle="dropdown"
-                        href="#" aria-haspopup="true" aria-expanded="false">
-                        Shop
-                    </a>
-                    <ul class="dropdown-menu border-xl shadow-none" aria-labelledby="navbarShop">
-                        <li class="dropdown-item">
-                            <a class="dropdown-link" href="./shop-cart.html">
-                                Shop Cart
-                            </a>
-                        </li>
-                        <li class="dropdown-item">
-                            <a class="dropdown-link" href="./shop-checkout.html">
-                                Shop Checkout
-                            </a>
-                        </li>
-                        <li class="dropdown-item">
-                            <a class="dropdown-link" href="./shop-list.html">
-                                Shop List
-                            </a>
-                        </li>
-                        <li class="dropdown-item">
-                            <a class="dropdown-link" href="./shop-single.html">
-                                Shop Single
-                            </a>
-                        </li>
-                        <li class="dropdown-item">
-                            <a class="dropdown-link" href="./shop-order-completed.html">
-                                Shop Order Completed
-                            </a>
-                        </li>
-                    </ul>
-                </li> -->
-      </ul>
-    </div>
-
-    <!-- Search, Account & Cart -->
-    <ul class="navbar-nav flex-row ms-auto ms-xl-0 me-n2 me-md-n4 align-items-center">
-      <li class="nav-item border-0 px-0 d-none d-370-block d-xl-block">
-        <a class="nav-link d-flex px-3 px-md-4 search-mobile text-white-all icon-xs" data-bs-toggle="collapse"
-          href="#collapseSearchMobile" role="button" aria-expanded="false" aria-controls="collapseSearchMobile">
-          <!-- Icon -->
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M8.80758 0C3.95121 0 0 3.95121 0 8.80758C0 13.6642 3.95121 17.6152 8.80758 17.6152C13.6642 17.6152 17.6152 13.6642 17.6152 8.80758C17.6152 3.95121 13.6642 0 8.80758 0ZM8.80758 15.9892C4.8477 15.9892 1.62602 12.7675 1.62602 8.80762C1.62602 4.84773 4.8477 1.62602 8.80758 1.62602C12.7675 1.62602 15.9891 4.8477 15.9891 8.80758C15.9891 12.7675 12.7675 15.9892 8.80758 15.9892Z"
-              fill="currentColor" />
-            <path
-              d="M19.762 18.6121L15.1007 13.9509C14.7831 13.6332 14.2687 13.6332 13.9511 13.9509C13.6335 14.2682 13.6335 14.7831 13.9511 15.1005L18.6124 19.7617C18.7712 19.9205 18.9791 19.9999 19.1872 19.9999C19.395 19.9999 19.6032 19.9205 19.762 19.7617C20.0796 19.4444 20.0796 18.9295 19.762 18.6121Z"
-              fill="currentColor" />
-          </svg>
-
-          <!-- Icon -->
-          <svg width="16" height="17" viewBox="0 0 16 17" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0.142135 2.00015L1.55635 0.585938L15.6985 14.7281L14.2843 16.1423L0.142135 2.00015Z"
-              fill="currentColor"></path>
-            <path d="M14.1421 1.0001L15.5563 2.41431L1.41421 16.5564L0 15.1422L14.1421 1.0001Z" fill="currentColor">
-            </path>
-          </svg>
+    <div class="container">
+        <!-- Brand -->
+        <a class="navbar-brand filter-none" href="/">
+            <img src="{% static 'img/logo.png' %}" class="navbar-brand-img" alt="..." />
         </a>
 
-        <div class="collapse position-absolute right-0 left-0 mx-4" id="collapseSearchMobile">
-          <div class="card card-body p-4 mt-6 mt-xl-4 shadow-dark">
-            <!-- Search -->
-            <form action="{% url 'search_list' %}" class="w-100">
+        <!-- Collapse -->
+        <div class="collapse navbar-collapse z-index-lg" id="navbarCollapse">
+            <!-- Toggler -->
+            <button class="navbar-toggler outline-0 text-primary" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <!-- Icon -->
+                <svg width="16" height="17" viewBox="0 0 16 17" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.142135 2.00015L1.55635 0.585938L15.6985 14.7281L14.2843 16.1423L0.142135 2.00015Z"
+                        fill="currentColor"></path>
+                    <path d="M14.1421 1.0001L15.5563 2.41431L1.41421 16.5564L0 15.1422L14.1421 1.0001Z"
+                        fill="currentColor">
+                    </path>
+                </svg>
+            </button>
 
-              <div class="input-group border rounded">
-                <div class="input-group-prepend">
-                  <button class="btn btn-sm text-secondary icon-xs d-flex align-items-center" type="submit">
+            <!-- Navigation -->
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle px-xl-4 text-uppercase" id="navbarCourses"
+                        data-bs-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
+                        Top Courses Category
+                    </a>
+                    <div class="dropdown-menu border-xl shadow-none dropdown-menu-md" aria-labelledby="navbarCourses">
+                        <div class="row gx-0">
+                            <div class="col-md-4">
+                                <!-- Heading -->
+
+                                {% for category in categories %}
+
+                                <a class="dropdown-item" href="{% url 'search_filter' %}?q={{ category.title }}">
+                                    {{category.title | title}}
+                                    <hr>
+                                </a>
+
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- / .row -->
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link px-xl-4 text-uppercase" id="navbarBlog" href="{% url 'articles_list' %}"
+                        aria-haspopup="true" aria-expanded="false">
+                        About Us
+                    </a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle px-xl-4 text-uppercase" id="navbarPages"
+                        data-bs-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
+                        Pages
+                    </a>
+                    <div class="dropdown-menu border-sm shadow-none dropdown-menu-sm" aria-labelledby="navbarPages">
+                        <div class="row gx-0">
+                            <div class="col-12 col-lg-12">
+                                <!-- List -->
+                                <a class="dropdown-item" href="#"> Our Instructors </a>
+                                <a class="dropdown-item" href="#"> Our Partner </a>
+                                <a class="dropdown-item" href="#"> Privacy Policy </a>
+                                <a class="dropdown-item" href="#"> Contact Us </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- / .row -->
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link px-xl-4 text-uppercase" id="navbarBlog" href="{% url 'articles_list' %}"
+                        aria-haspopup="true" aria-expanded="false">
+                        Blog
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Search, Account & Cart -->
+        <ul class="navbar-nav flex-row ms-auto ms-xl-0 me-n2 me-md-n4 align-items-center">
+            <li class="nav-item border-0 px-0 d-none d-370-block d-xl-block">
+                <a class="nav-link d-flex px-3 px-md-4 search-mobile text-white-all icon-xs" data-bs-toggle="collapse"
+                    href="#collapseSearchMobile" role="button" aria-expanded="false"
+                    aria-controls="collapseSearchMobile">
                     <!-- Icon -->
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M8.80758 0C3.95121 0 0 3.95121 0 8.80758C0 13.6642 3.95121 17.6152 8.80758 17.6152C13.6642 17.6152 17.6152 13.6642 17.6152 8.80758C17.6152 3.95121 13.6642 0 8.80758 0ZM8.80758 15.9892C4.8477 15.9892 1.62602 12.7675 1.62602 8.80762C1.62602 4.84773 4.8477 1.62602 8.80758 1.62602C12.7675 1.62602 15.9891 4.8477 15.9891 8.80758C15.9891 12.7675 12.7675 15.9892 8.80758 15.9892Z"
-                        fill="currentColor" />
-                      <path
-                        d="M19.762 18.6121L15.1007 13.9509C14.7831 13.6332 14.2687 13.6332 13.9511 13.9509C13.6335 14.2682 13.6335 14.7831 13.9511 15.1005L18.6124 19.7617C18.7712 19.9205 18.9791 19.9999 19.1872 19.9999C19.395 19.9999 19.6032 19.9205 19.762 19.7617C20.0796 19.4444 20.0796 18.9295 19.762 18.6121Z"
-                        fill="currentColor" />
+                        <path
+                            d="M8.80758 0C3.95121 0 0 3.95121 0 8.80758C0 13.6642 3.95121 17.6152 8.80758 17.6152C13.6642 17.6152 17.6152 13.6642 17.6152 8.80758C17.6152 3.95121 13.6642 0 8.80758 0ZM8.80758 15.9892C4.8477 15.9892 1.62602 12.7675 1.62602 8.80762C1.62602 4.84773 4.8477 1.62602 8.80758 1.62602C12.7675 1.62602 15.9891 4.8477 15.9891 8.80758C15.9891 12.7675 12.7675 15.9892 8.80758 15.9892Z"
+                            fill="currentColor" />
+                        <path
+                            d="M19.762 18.6121L15.1007 13.9509C14.7831 13.6332 14.2687 13.6332 13.9511 13.9509C13.6335 14.2682 13.6335 14.7831 13.9511 15.1005L18.6124 19.7617C18.7712 19.9205 18.9791 19.9999 19.1872 19.9999C19.395 19.9999 19.6032 19.9205 19.762 19.7617C20.0796 19.4444 20.0796 18.9295 19.762 18.6121Z"
+                            fill="currentColor" />
                     </svg>
-                  </button>
+
+                    <!-- Icon -->
+                    <svg width="16" height="17" viewBox="0 0 16 17" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.142135 2.00015L1.55635 0.585938L15.6985 14.7281L14.2843 16.1423L0.142135 2.00015Z"
+                            fill="currentColor"></path>
+                        <path d="M14.1421 1.0001L15.5563 2.41431L1.41421 16.5564L0 15.1422L14.1421 1.0001Z"
+                            fill="currentColor">
+                        </path>
+                    </svg>
+                </a>
+
+                <div class="collapse position-absolute right-0 left-0 mx-4" id="collapseSearchMobile">
+                    <div class="card card-body p-4 mt-6 mt-xl-4 shadow-dark">
+                        <!-- Search -->
+                        <form action="{% url 'search_list' %}" class="w-100">
+
+                            <div class="input-group border rounded">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-sm text-secondary icon-xs d-flex align-items-center"
+                                        type="submit">
+                                        <!-- Icon -->
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M8.80758 0C3.95121 0 0 3.95121 0 8.80758C0 13.6642 3.95121 17.6152 8.80758 17.6152C13.6642 17.6152 17.6152 13.6642 17.6152 8.80758C17.6152 3.95121 13.6642 0 8.80758 0ZM8.80758 15.9892C4.8477 15.9892 1.62602 12.7675 1.62602 8.80762C1.62602 4.84773 4.8477 1.62602 8.80758 1.62602C12.7675 1.62602 15.9891 4.8477 15.9891 8.80758C15.9891 12.7675 12.7675 15.9892 8.80758 15.9892Z"
+                                                fill="currentColor" />
+                                            <path
+                                                d="M19.762 18.6121L15.1007 13.9509C14.7831 13.6332 14.2687 13.6332 13.9511 13.9509C13.6335 14.2682 13.6335 14.7831 13.9511 15.1005L18.6124 19.7617C18.7712 19.9205 18.9791 19.9999 19.1872 19.9999C19.395 19.9999 19.6032 19.9205 19.762 19.7617C20.0796 19.4444 20.0796 18.9295 19.762 18.6121Z"
+                                                fill="currentColor" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                <input class="form-control form-control-sm border-0 ps-0" type="search"
+                                    placeholder="What do you want to learn ?" aria-label="Search" name="q" />
+                            </div>
+                        </form>
+
+                    </div>
                 </div>
-                <input class="form-control form-control-sm border-0 ps-0" type="search"
-                  placeholder="What do you want to learn ?" aria-label="Search" name="q" />
-              </div>
-            </form>
-
-          </div>
-        </div>
-      </li>
+            </li>
 
 
-      {% comment %}
-      <li class="nav-item border-0 px-0">
-        <!-- Button trigger cart modal -->
-        <a href="#" class="nav-link d-flex px-3 px-md-4 position-relative text-white-all icon-xs" data-bs-toggle="modal"
-          data-bs-target="#cartModal">
-          <span class="badge badge-mongoose text-white rounded-circle fw-bold badge-float mt-n1 ms-n2 px-0 w-16"
-            style="font-size: 8px">2</span>
-          <!-- Icon -->
-          <svg width="13" height="15" viewBox="0 0 13 15" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M12.2422 3.51562H10.4567C10.2239 1.53873 8.53839 0 6.5 0C4.46161 0 2.7761 1.53873 2.54334 3.51562H0.757812C0.434199 3.51562 0.171875 3.77795 0.171875 4.10156V14.4141C0.171875 14.7377 0.434199 15 0.757812 15H12.2422C12.5658 15 12.8281 14.7377 12.8281 14.4141V4.10156C12.8281 3.77795 12.5658 3.51562 12.2422 3.51562ZM6.5 1.17188C7.89113 1.17188 9.04939 2.18716 9.27321 3.51562H3.72679C3.95062 2.18716 5.10887 1.17188 6.5 1.17188ZM11.6562 13.8281H1.34375V4.6875H2.51562V6.44531C2.51562 6.76893 2.77795 7.03125 3.10156 7.03125C3.42518 7.03125 3.6875 6.76893 3.6875 6.44531V4.6875H9.3125V6.44531C9.3125 6.76893 9.57482 7.03125 9.89844 7.03125C10.2221 7.03125 10.4844 6.76893 10.4844 6.44531V4.6875H11.6562V13.8281Z"
-              fill="currentColor" />
-          </svg>
-        </a>
-      </li>
-      {% endcomment %}
-    </ul>
+            {% comment %}
+            <li class="nav-item border-0 px-0">
+                <!-- Button trigger cart modal -->
+                <a href="#" class="nav-link d-flex px-3 px-md-4 position-relative text-white-all icon-xs"
+                    data-bs-toggle="modal" data-bs-target="#cartModal">
+                    <span
+                        class="badge badge-mongoose text-white rounded-circle fw-bold badge-float mt-n1 ms-n2 px-0 w-16"
+                        style="font-size: 8px">2</span>
+                    <!-- Icon -->
+                    <svg width="13" height="15" viewBox="0 0 13 15" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12.2422 3.51562H10.4567C10.2239 1.53873 8.53839 0 6.5 0C4.46161 0 2.7761 1.53873 2.54334 3.51562H0.757812C0.434199 3.51562 0.171875 3.77795 0.171875 4.10156V14.4141C0.171875 14.7377 0.434199 15 0.757812 15H12.2422C12.5658 15 12.8281 14.7377 12.8281 14.4141V4.10156C12.8281 3.77795 12.5658 3.51562 12.2422 3.51562ZM6.5 1.17188C7.89113 1.17188 9.04939 2.18716 9.27321 3.51562H3.72679C3.95062 2.18716 5.10887 1.17188 6.5 1.17188ZM11.6562 13.8281H1.34375V4.6875H2.51562V6.44531C2.51562 6.76893 2.77795 7.03125 3.10156 7.03125C3.42518 7.03125 3.6875 6.76893 3.6875 6.44531V4.6875H9.3125V6.44531C9.3125 6.76893 9.57482 7.03125 9.89844 7.03125C10.2221 7.03125 10.4844 6.76893 10.4844 6.44531V4.6875H11.6562V13.8281Z"
+                            fill="currentColor" />
+                    </svg>
+                </a>
+            </li>
+            {% endcomment %}
+        </ul>
 
-    <!-- Toggler -->
-    <button
-      class="navbar-toggler ms-4 ms-md-5 shadow-none bg-teal text-white icon-xs p-0 outline-0 h-40p w-40p d-flex d-xl-none place-flex-center"
-      type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <!-- Icon -->
-      <svg width="25" height="17" viewBox="0 0 25 17" xmlns="http://www.w3.org/2000/svg">
-        <rect width="25" height="1" fill="currentColor" />
-        <rect y="8" width="15" height="1" fill="currentColor" />
-        <rect y="16" width="20" height="1" fill="currentColor" />
-      </svg>
-    </button>
-  </div>
+        <!-- Toggler -->
+        <button
+            class="navbar-toggler ms-4 ms-md-5 shadow-none bg-teal text-white icon-xs p-0 outline-0 h-40p w-40p d-flex d-xl-none place-flex-center"
+            type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <!-- Icon -->
+            <svg width="25" height="17" viewBox="0 0 25 17" xmlns="http://www.w3.org/2000/svg">
+                <rect width="25" height="1" fill="currentColor" />
+                <rect y="8" width="15" height="1" fill="currentColor" />
+                <rect y="16" width="20" height="1" fill="currentColor" />
+            </svg>
+        </button>
+    </div>
 </header>
 
 <!-- HERO
     ================================================== -->
 <section class="mt-n13">
-  <div
-    class="flickity-page-dots-vertical flickity-page-dots-white position-static flickity-button-outline button-same-position"
-    data-flickity='{"pageDots": true, "prevNextButtons": true, "cellAlign": "center", "wrapAround": true, "imagesLoaded": true}'>
-    <div class="w-100">
-      <div class="vh-100 bg-cover position-relative overlay overlay-custom-blue"
-        style="background-image: url('{% static 'img/covers/cover-14.jpg' %}')">
-        <div class="container position-static">
-          <div class="vh-100 row gx-0">
-            <div class="col-lg-6 my-auto" style="z-index: 1">
-              <!-- Heading -->
-              <h1 class="display-5 fw-medium text-white mb-2 text-capitalize font-lora" data-aos="fade-left"
-                data-aos-duration="150">
-                <span class="fw-bold">Get the skills you need for tech career
-                </span>
-                <span class="d-block">in just 3 months.</span>
-              </h1>
+    <div class="flickity-page-dots-vertical flickity-page-dots-white position-static flickity-button-outline button-same-position"
+        data-flickity='{"pageDots": true, "prevNextButtons": true, "cellAlign": "center", "wrapAround": true, "imagesLoaded": true}'>
+        <div class="w-100">
+            <div class="vh-100 bg-cover position-relative overlay overlay-custom-blue"
+                style="background-image: url('{% static 'img/covers/cover-14.jpg' %}')">
+                <div class="container position-static">
+                    <div class="vh-100 row gx-0">
+                        <div class="col-lg-6 my-auto" style="z-index: 1">
+                            <!-- Heading -->
+                            <h1 class="display-5 fw-medium text-white mb-2 text-capitalize font-lora"
+                                data-aos="fade-left" data-aos-duration="150">
+                                <span class="fw-bold">Get the skills you need for tech career
+                                </span>
+                                <span class="d-block">in just 3 months.</span>
+                            </h1>
 
-              <!-- Text -->
-              <p class="font-montserrat text-capitalize mb-5 text-white me-xl-12 line-height-md" data-aos="fade-up"
-                data-aos-duration="200">
-                Our programs are built in partnership with the world’s most
-                innovative tech companies and taught by industry leaders.
-              </p>
+                            <!-- Text -->
+                            <p class="font-montserrat text-capitalize mb-5 text-white me-xl-12 line-height-md"
+                                data-aos="fade-up" data-aos-duration="200">
+                                Our programs are built in partnership with the world’s most
+                                innovative tech companies and taught by industry leaders.
+                            </p>
 
-              <!-- Buttons -->
-              <a href="{% url 'course_register' %}"
-                class="btn text-white-alone font-size-sm btn-slide slide-white btn-wide shadow mb-4 mb-md-0 me-md-5 font-montserrat fw-bold"
-                data-aos-duration="200" data-aos="fade-up">APPLY NOW</a>
+                            <!-- Buttons -->
+                            <a href="{% url 'course_register' %}"
+                                class="btn text-white-alone font-size-sm btn-slide slide-white btn-wide shadow mb-4 mb-md-0 me-md-5 font-montserrat fw-bold"
+                                data-aos-duration="200" data-aos="fade-up">APPLY NOW</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="w-100">
-      <div class="vh-100 bg-cover position-relative overlay overlay-custom-blue"
-        style="background-image: url('{% static 'img/covers/cover-7.jpg' %}')">
-        <div class="container position-static">
-          <div class="vh-100 row gx-0">
-            <div class="col-lg-6 my-auto" style="z-index: 1">
-              <!-- Heading -->
-              <h1 class="display-5 fw-medium text-white mb-2 text-capitalize font-lora" data-aos="fade-left"
-                data-aos-duration="150">
-                <span class="fw-bold">The Best University</span>
-                <span class="d-block">Of The State</span>
-              </h1>
+        <div class="w-100">
+            <div class="vh-100 bg-cover position-relative overlay overlay-custom-blue"
+                style="background-image: url('{% static 'img/covers/cover-7.jpg' %}')">
+                <div class="container position-static">
+                    <div class="vh-100 row gx-0">
+                        <div class="col-lg-6 my-auto" style="z-index: 1">
+                            <!-- Heading -->
+                            <h1 class="display-5 fw-medium text-white mb-2 text-capitalize font-lora"
+                                data-aos="fade-left" data-aos-duration="150">
+                                <span class="fw-bold">The Best University</span>
+                                <span class="d-block">Of The State</span>
+                            </h1>
 
-              <!-- Text -->
-              <p class="font-montserrat text-capitalize mb-5 text-white me-xl-12 line-height-md" data-aos="fade-up"
-                data-aos-duration="200">
-                Technology is brining a massive wave of evolution on learning
-                things on different ways.
-              </p>
+                            <!-- Text -->
+                            <p class="font-montserrat text-capitalize mb-5 text-white me-xl-12 line-height-md"
+                                data-aos="fade-up" data-aos-duration="200">
+                                Technology is brining a massive wave of evolution on learning
+                                things on different ways.
+                            </p>
 
-              <!-- Buttons -->
-              <a href="./course-list-v1.html"
-                class="btn text-white-alone font-size-sm btn-slide slide-white btn-wide shadow mb-4 mb-md-0 me-md-5 font-montserrat fw-bold"
-                data-aos-duration="200" data-aos="fade-up">APPLY NOW</a>
+                            <!-- Buttons -->
+                            <a href="./course-list-v1.html"
+                                class="btn text-white-alone font-size-sm btn-slide slide-white btn-wide shadow mb-4 mb-md-0 me-md-5 font-montserrat fw-bold"
+                                data-aos-duration="200" data-aos="fade-up">APPLY NOW</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="w-100">
-      <div class="vh-100 bg-cover position-relative overlay overlay-custom-blue"
-        style="background-image: url('{% static 'img/covers/cover-4.jpg' %}')">
-        <div class="container position-static">
-          <div class="vh-100 row gx-0">
-            <div class="col-lg-6 my-auto" style="z-index: 1">
-              <!-- Heading -->
-              <h1 class="display-5 fw-medium text-white mb-2 text-capitalize font-lora" data-aos="fade-left"
-                data-aos-duration="150">
-                <span class="fw-bold">The Best University</span>
-                <span class="d-block">Of The State</span>
-              </h1>
+        <div class="w-100">
+            <div class="vh-100 bg-cover position-relative overlay overlay-custom-blue"
+                style="background-image: url('{% static 'img/covers/cover-4.jpg' %}')">
+                <div class="container position-static">
+                    <div class="vh-100 row gx-0">
+                        <div class="col-lg-6 my-auto" style="z-index: 1">
+                            <!-- Heading -->
+                            <h1 class="display-5 fw-medium text-white mb-2 text-capitalize font-lora"
+                                data-aos="fade-left" data-aos-duration="150">
+                                <span class="fw-bold">The Best University</span>
+                                <span class="d-block">Of The State</span>
+                            </h1>
 
-              <!-- Text -->
-              <p class="font-montserrat text-capitalize mb-5 text-white me-xl-12 line-height-md" data-aos="fade-up"
-                data-aos-duration="200">
-                Technology is brining a massive wave of evolution on learning
-                things on different ways.
-              </p>
+                            <!-- Text -->
+                            <p class="font-montserrat text-capitalize mb-5 text-white me-xl-12 line-height-md"
+                                data-aos="fade-up" data-aos-duration="200">
+                                Technology is brining a massive wave of evolution on learning
+                                things on different ways.
+                            </p>
 
-              <!-- Buttons -->
-              <a href="./course-list-v1.html"
-                class="btn text-white-alone font-size-sm btn-slide slide-white btn-wide shadow mb-4 mb-md-0 me-md-5 font-montserrat fw-bold"
-                data-aos-duration="200" data-aos="fade-up">APPLY NOW</a>
+                            <!-- Buttons -->
+                            <a href="./course-list-v1.html"
+                                class="btn text-white-alone font-size-sm btn-slide slide-white btn-wide shadow mb-4 mb-md-0 me-md-5 font-montserrat fw-bold"
+                                data-aos-duration="200" data-aos="fade-up">APPLY NOW</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="w-100">
-      <div class="vh-100 bg-cover position-relative overlay overlay-custom-blue"
-        style="background-image: url('{% static 'img/covers/cover-1.jpg' %}')">
-        <div class="container position-static">
-          <div class="vh-100 row gx-0">
-            <div class="col-lg-6 my-auto">
-              <!-- Heading -->
-              <h1 class="display-5 fw-medium text-white mb-2 text-capitalize font-lora" data-aos="fade-left"
-                data-aos-duration="150">
-                <span class="fw-bold">The Best University</span>
-                <span class="d-block">Of The State</span>
-              </h1>
+        <div class="w-100">
+            <div class="vh-100 bg-cover position-relative overlay overlay-custom-blue"
+                style="background-image: url('{% static 'img/covers/cover-1.jpg' %}')">
+                <div class="container position-static">
+                    <div class="vh-100 row gx-0">
+                        <div class="col-lg-6 my-auto">
+                            <!-- Heading -->
+                            <h1 class="display-5 fw-medium text-white mb-2 text-capitalize font-lora"
+                                data-aos="fade-left" data-aos-duration="150">
+                                <span class="fw-bold">The Best University</span>
+                                <span class="d-block">Of The State</span>
+                            </h1>
 
-              <!-- Text -->
-              <p class="font-montserrat text-capitalize mb-5 text-white me-xl-12 line-height-md" data-aos="fade-up"
-                data-aos-duration="200">
-                Technology is brining a massive wave of evolution on learning
-                things on different ways.
-              </p>
+                            <!-- Text -->
+                            <p class="font-montserrat text-capitalize mb-5 text-white me-xl-12 line-height-md"
+                                data-aos="fade-up" data-aos-duration="200">
+                                Technology is brining a massive wave of evolution on learning
+                                things on different ways.
+                            </p>
 
-              <!-- Buttons -->
-              <a href="./course-list-v1.html"
-                class="btn text-white-alone font-size-sm btn-slide slide-white btn-wide shadow mb-4 mb-md-0 me-md-5 font-montserrat fw-bold"
-                data-aos-duration="200" data-aos="fade-up">APPLY NOW</a>
+                            <!-- Buttons -->
+                            <a href="./course-list-v1.html"
+                                class="btn text-white-alone font-size-sm btn-slide slide-white btn-wide shadow mb-4 mb-md-0 me-md-5 font-montserrat fw-bold"
+                                data-aos-duration="200" data-aos="fade-up">APPLY NOW</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
 
-  </div>
+    </div>
 </section>

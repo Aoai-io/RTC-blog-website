@@ -37,6 +37,7 @@ ALLOWED_HOSTS = ["139.162.137.156", "www.rtcproiq.com", "rtcproiq.com", "127.0.0
 # Application definition
 
 INSTALLED_APPS = [
+    "clearcache",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -49,6 +50,7 @@ INSTALLED_APPS = [
     "courses",
     "instructors",
     "profiles",
+    "config",
     # 3d party
     "ckeditor",
     "ckeditor_uploader",
@@ -61,7 +63,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 
 MIDDLEWARE = [
-    "django.middleware.cache.UpdateCacheMiddleware",
+    # "django.middleware.cache.UpdateCacheMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
@@ -70,7 +72,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "django.middleware.cache.FetchFromCacheMiddleware",
+    # "django.middleware.cache.FetchFromCacheMiddleware",
 ]
 
 ROOT_URLCONF = "config.urls"

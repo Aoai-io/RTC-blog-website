@@ -68,7 +68,7 @@ province = (
 class Course(models.Model):
     # id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=50)
-    instructor = models.ForeignKey(Instructor, on_delete=CASCADE)
+    instructor = models.ForeignKey(Instructor, on_delete=CASCADE, related_name='courses')
     cover = models.ImageField(upload_to="courses/", blank=True, null=True)
     sub_category = models.ForeignKey(
         SubCategory, related_name='course',on_delete=models.CASCADE, null=True, blank=True
