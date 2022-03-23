@@ -15,17 +15,17 @@
 
             <ul class="nav ms-auto me-n3 font-size-sm">
                 <li class="nav-item px-3">
-                    <a href="#" class="nav-link p-0 text-white">
+                    <a href="https://www.facebook.com/rtcproacademy" class="nav-link p-0 text-white">
                         <i class="fab fa-facebook-f"></i>
                     </a>
                 </li>
                 <li class="nav-item px-3">
-                    <a href="#" class="nav-link p-0 text-white">
+                    <a href="https://www.instagram.com/rtcproacademy/" class="nav-link p-0 text-white">
                         <i class="fab fa-instagram"></i>
                     </a>
                 </li>
                 <li class="nav-item px-3">
-                    <a href="#" class="nav-link p-0 text-white">
+                    <a href="https://www.linkedin.com/company/rtcpro" class="nav-link p-0 text-white">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
                 </li>
@@ -46,7 +46,7 @@
     <div class="container">
         <!-- Brand -->
         <a class="navbar-brand filter-none" href="/">
-            <img src="{% static 'img/logo.png' %}" class="navbar-brand-img" alt="..." />
+            <img src="{% static 'img/logo.svg' %}" class="navbar-brand-img" alt="..." />
         </a>
 
         <!-- Collapse -->
@@ -106,10 +106,11 @@
                         <div class="row gx-0">
                             <div class="col-12 col-lg-12">
                                 <!-- List -->
-                                <a class="dropdown-item" href="#"> Our Instructors </a>
-                                <a class="dropdown-item" href="#"> Our Partner </a>
-                                <a class="dropdown-item" href="#"> Privacy Policy </a>
-                                <a class="dropdown-item" href="#"> Contact Us </a>
+                                <a class="dropdown-item" href="{% url 'coming_soon' %}"> Our Instructors </a>
+                                <a class="dropdown-item" href="{% url 'coming_soon' %}"> Become an Instructor </a>
+                                <a class="dropdown-item" href="{% url 'coming_soon' %}"> Our Partner </a>
+                                <a class="dropdown-item" href="{% url 'privacy_policy' %}"> Privacy Policy </a>
+                                <a class="dropdown-item" href="{% url 'coming_soon' %}"> Contact Us </a>
                             </div>
                         </div>
                     </div>

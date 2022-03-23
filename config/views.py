@@ -12,7 +12,11 @@ import os
 categories = None
 
 def page_not_found_view(request, exception):
-    return render(request, '404.html', status=404)
+    categories = Category.objects.all()
+    context = {
+        "categories": categories,
+    }
+    return render(request, '404.html', status=404, context=context)
 
 
 def HomePageView(request):
@@ -23,27 +27,27 @@ def HomePageView(request):
     global categories
     categories = Category.objects.all()
 
-    global sub_categories
-    sub_categories = SubCategory.objects.all()
-
     context = {
         "articles": articles,
         "courses": courses,
         "instructors": instructors,
         "categories": categories,
-        "sub_categories": sub_categories,
     }
     return render(request, "home.html", context=context)
 
 
 def privacy_policy(request):
-    categories = Category.objects.all()
-
-
     context = {
         "categories": categories,
     }
     return render(request, "privacy_policy.html", context=context)
+
+
+def coming_soon(request):
+    context = {
+        "categories": categories,
+    }
+    return render(request, "coming_soon.html", context=context)
 
 
 def Deploy(request):

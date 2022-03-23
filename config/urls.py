@@ -17,13 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
-from .views import HomePageView, Deploy, send_email, privacy_policy
+from .views import HomePageView, Deploy, send_email, privacy_policy, coming_soon
 
 urlpatterns = [
     path("admin/clearcache/", include("clearcache.urls")),
     path("admin/", admin.site.urls),
     path("", HomePageView, name="home"),
     path("privacy_policy/", privacy_policy, name="privacy_policy"),
+    path("coming_soon/", coming_soon, name="coming_soon"),
     path("dev/deploy/admin/go", Deploy, name="deploy"),
     path("articles/", include("articles.urls")),
     path("instructors/", include("instructors.urls")),
