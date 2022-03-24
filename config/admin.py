@@ -1,11 +1,11 @@
 from django.contrib import admin
-from import_export.admin import ExportActionMixin
+from import_export.admin import ImportExportMixin
 from .model import SubscribeEmail
 # Register your models here.
 
 
-class DataCollectorAdmin(ExportActionMixin, admin.ModelAdmin):
+class SubscribeEmailAdmin(ImportExportMixin, admin.ModelAdmin):
     readonly_fields = ("created_at", "updated_at")
-    list_display = ('email', 'created_at')
+    list_display = ['email', 'created_at']
 
-admin.site.register(SubscribeEmail,DataCollectorAdmin)
+admin.site.register(SubscribeEmail,SubscribeEmailAdmin)
