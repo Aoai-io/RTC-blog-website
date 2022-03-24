@@ -1,7 +1,6 @@
 from django import forms
 from django.forms.widgets import ChoiceWidget, TextInput
 from .models import Review, DataCollector
-from phonenumber_field.modelfields import PhoneNumberField
 
 
 gender = (
@@ -44,6 +43,16 @@ class DataCollectorForm(forms.ModelForm):
         )
     )
 
+    phone = forms.IntegerField(
+        required=True,
+        widget=forms.NumberInput(
+            attrs={
+                "class": "form-control-sm",
+                "placeholder": "Phone Number",
+            }
+        ),
+    )
+
     date_of_birth = forms.DateField(
         required=True,
         widget=forms.DateInput(
@@ -54,17 +63,6 @@ class DataCollectorForm(forms.ModelForm):
             }
         ),
     )
-    # gender =forms.CharField(
-    #     required=True,
-    #     widget=forms.TextInput(
-    #         attrs={
-    #             "class": "form-control-sm",
-    #             "placeholder": "Birth Of Date",
-    #             "type": "radio",
-    #         }
-    #     ),
-       
-    # )
 
     street_address = forms.CharField(
         required=False,
