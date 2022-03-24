@@ -43,12 +43,14 @@ class DataCollectorForm(forms.ModelForm):
         )
     )
 
-    phone = forms.IntegerField(
+    phone = forms.CharField(
         required=True,
-        widget=forms.NumberInput(
+        widget=forms.TextInput(
             attrs={
                 "class": "form-control-sm",
+                "type": "Number",
                 "placeholder": "Phone Number",
+                "value":"00964",
             }
         ),
     )

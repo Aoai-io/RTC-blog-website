@@ -17,8 +17,6 @@ django-crispy-forms==1.14.0; python_version >= '3.7'
 django-environ==0.8.1
 django-import-export==2.7.1
 django-js-asset==2.0.0; python_version >= '3.6'
-django-phonenumber-field==6.1.0
-django-phonenumbers==1.0.1
 django==4.0.3
 et-xmlfile==1.1.0; python_version >= '3.6'
 gunicorn==20.1.0
@@ -26,7 +24,6 @@ markuppy==1.14
 mysqlclient==2.1.0
 odfpy==1.4.1
 openpyxl==3.0.9
-phonenumbers==8.12.45
 pillow==9.0.1
 psycopg2-binary==2.9.3
 pyyaml==6.0

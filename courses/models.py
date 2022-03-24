@@ -3,7 +3,6 @@ from django.db import models
 from django.db.models.deletion import CASCADE
 from instructors.models import Instructor
 from django.urls import reverse
-from phonenumber_field.modelfields import PhoneNumberField
 from ckeditor.fields import RichTextField
 
 # Create your models here.
@@ -145,8 +144,8 @@ class DataCollector(models.Model):
     # TODO: Define fields here
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    email = models.EmailField(max_length=254)
-    phone = PhoneNumberField(blank=True, null=True, region="IQ")
+    email = models.EmailField(max_length=254, unique=True)
+    phone = models.CharField(blank=True, null=True, max_length=15)
 
     date_of_birth = models.DateField(
         auto_now=False, auto_now_add=False, null=True, blank=True
