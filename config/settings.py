@@ -51,12 +51,13 @@ INSTALLED_APPS = [
     "instructors",
     "profiles",
     "config",
+    "Events",
+    
     # 3d party
     "ckeditor",
     "ckeditor_uploader",
     "crispy_bootstrap5",
     "crispy_forms",
-    "phonenumber_field",
     "import_export",
 ]
 

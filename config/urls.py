@@ -27,6 +27,7 @@ urlpatterns = [
     path("coming_soon/", coming_soon, name="coming_soon"),
     path("dev/deploy/admin/go", Deploy, name="deploy"),
     path("articles/", include("articles.urls")),
+    path("events/", include("Events.urls")),
     path("instructors/", include("instructors.urls")),
     path("courses/", include("courses.urls")),
     path("send_email/", send_email, name="send_email"),
