@@ -111,42 +111,9 @@ Event
         <div class="row mb-11">
             <div class="col-lg-8 mb-6 mb-lg-0">
                 <h3 class="">Event Description</h3>
-                <p class="mb-6 line-height-md">Do you want to become a UI/UX designer but you don't know where to start?
-                    This course will allow you to develop your user interface design skills and you can add UI designer
-                    to
-                    your CV and start getting clients for your skills.</p>
-                <p class="mb-6 line-height-md">Hi everyone. I'm Arash and I'm a UI/UX designer. In this course, I will
-                    help
-                    you learn and master Figma app comprehensively from scratch. Figma is an innovative and brilliant
-                    tool
-                    for User Interface design. It's used by everyone from entrepreneurs and start-ups to Apple, Airbnb,
-                    Facebook, etc.</p>
-                <p class="collapse mb-6 line-height-md" id="readcollapseExample">Anim pariatur cliche reprehenderit,
-                    enim
-                    eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
-                    labore
-                    wes anderson cred nesciunt sapiente I will help you learn and master Figma app comprehensively from
-                    scratch. Figma is an innovative and brilliant tool for User Interface design. It's used by everyone
-                    from
-                    entrepreneurs ea proident.</p>
-                <a class="text-teal read-more h6 d-inline-block mb-8" data-bs-toggle="collapse"
-                    href="#readcollapseExample" role="button" aria-expanded="false" aria-controls="readcollapseExample">
-                    <span class="d-inline-flex align-items-center more">
-                        Read More
-                        <span
-                            class="d-flex align-items-center justify-content-center bg-teal rounded-circle ms-2 p-2 w-26p">
-                            <i class="fas fa-plus font-size-10 text-white"></i>
-                        </span>
-                    </span>
-                    <span class="d-inline-flex align-items-center less">
-                        Read Less
-                        <span
-                            class="d-flex align-items-center justify-content-center bg-teal rounded-circle ms-2 p-2 w-26p">
-                            <i class="fas fa-minus font-size-10 text-white"></i>
-                        </span>
-                    </span>
-                </a>
-
+                <p class="mb-6 line-height-md">{{event.description}}</p>
+               
+                {% comment %}
                 <h3 class="mb-5">What you'll learn</h3>
                 <div class="row row-cols-lg-2 mb-8">
                     <div class="col-md">
@@ -445,7 +412,11 @@ Event
                         </div>
                     </li>
                 </ul>
-
+                
+                
+                    
+                
+                    
                 <div class="border shadow rounded p-6 p-md-9">
                     <h3 class="mb-2">Add Reviews & Rate</h3>
                     <div class="">What is it like to Course?</div>
@@ -499,7 +470,9 @@ Event
                         <button type="submit" class="btn btn-primary btn-block mw-md-300p">SUBMIT REVIEW</button>
                     </form>
                 </div>
+                {% endcomment %}
             </div>
+            
 
             <div class="col-lg-4">
                 <!-- SIDEBAR
@@ -507,10 +480,12 @@ Event
                 <div class="rounded border p-2 shadow mb-6">
                     <div class="pt-5 pb-4 px-5 px-lg-3 px-xl-5">
                         <div class="d-flex align-items-center mb-2">
-                            <ins class="h2 mb-0">$89.99</ins>
-                            <del class="ms-3">339.99</del>
-                            <div class="badge badge-lg badge-purple text-white ms-auto fw-normal">91% Off</div>
+                            <ins class="h2 mb-0">Free</ins>
+                            <del class="ms-3">Free</del>
+                            <div class="badge badge-lg badge-purple text-white ms-auto fw-normal">100% Off</div>
                         </div>
+                        
+                        {% comment %}
 
                         <div class="d-flex align-items-center text-alizarin mb-6">
                             <!-- Icon -->
@@ -537,6 +512,7 @@ Event
 
                             <span class="ms-2">2 days left at this price!</span>
                         </div>
+                        {% endcomment %}
 
                         <ul class="list-group list-group-flush mb-6">
                             <li class="list-group-item d-flex align-items-center py-3">
@@ -550,7 +526,7 @@ Event
 
                                 </div>
                                 <h6 class="mb-0 ms-3 me-auto">Total Slot</h6>
-                                <span>240</span>
+                                <span>{{event.total_slot}}</span>
                             </li>
                             <li class="list-group-item d-flex align-items-center py-3">
                                 <div class="text-secondary d-flex">
