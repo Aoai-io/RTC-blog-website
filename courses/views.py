@@ -53,9 +53,7 @@ class CourseSearchListView(ListView):
 
     def get_queryset(self):
         q = self.request.GET.get("q")
-        if q == "" or q == None:
-            pass
-        else:
+        if q not in ["", None]:
             return Course.objects.filter(
                 Q(title__icontains=q)
                 | Q(instructor__name__icontains=q)
@@ -100,7 +98,5 @@ class SearchResultListView(ListView):
 
     def get_queryset(self):
         q = self.request.GET.get("q")
-        if q == "" or q == None:
-            pass
-        else:
+        if q not in ["", None]:
             return Course.objects.filter(Q(sub_category__title__icontains=q)|Q(sub_category__category__title__icontains=q))

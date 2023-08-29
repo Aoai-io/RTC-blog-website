@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+
 from pathlib import Path
 import os
 import environ
@@ -52,7 +53,7 @@ INSTALLED_APPS = [
     "profiles",
     "config",
     "Events",
-    
+
     # 3d party
     "ckeditor",
     "ckeditor_uploader",
@@ -213,7 +214,10 @@ CKEDITOR_CONFIGS = {
                     "Redo",
                 ],
             },
-            {"name": "editing", "items": ["Find", "Replace", "-", "SelectAll"]},
+            {
+                "name": "editing",
+                "items": ["Find", "Replace", "-", "SelectAll"],
+            },
             {
                 "name": "forms",
                 "items": [
@@ -280,7 +284,10 @@ CKEDITOR_CONFIGS = {
                 ],
             },
             "/",
-            {"name": "styles", "items": ["Styles", "Format", "Font", "FontSize"]},
+            {
+                "name": "styles",
+                "items": ["Styles", "Format", "Font", "FontSize"],
+            },
             {"name": "colors", "items": ["TextColor", "BGColor"]},
             {"name": "tools", "items": ["Maximize", "ShowBlocks"]},
             {"name": "about", "items": ["About"]},
@@ -294,7 +301,7 @@ CKEDITOR_CONFIGS = {
                 ],
             },
         ],
-        "toolbar": "YourCustomToolbarConfig",  # put selected toolbar config here
+        "toolbar": "YourCustomToolbarConfig",
         "toolbarGroups": [
             {"name": "document", "groups": ["mode", "document", "doctools"]}
         ],
@@ -303,7 +310,7 @@ CKEDITOR_CONFIGS = {
         "toolbarCanCollapse": True,
         "mathJaxLib": "//cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML",
         "tabSpaces": 4,
-        "uploadUrl": f"/static/img/",
+        "uploadUrl": "/static/img/",
         "filebrowserUploadUrl": f"{str(BASE_DIR.joinpath('/static/img/'))}",
         "filebrowserImageUploadUrl ": f"{str(BASE_DIR.joinpath('/static/img/'))}",
         "extraPlugins": ",".join(

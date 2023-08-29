@@ -170,7 +170,7 @@ class DataCollector(models.Model):
 
     def __str__(self):
         """Unicode representation of DataCollector."""
-        return str(self.first_name + " " + self.last_name)
+        return str(f"{self.first_name} {self.last_name}")
 
     def get_absolute_url(self):
         return reverse("home")
